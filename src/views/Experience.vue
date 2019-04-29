@@ -1,5 +1,20 @@
 <template>
-  <div class="experience">
-    <h1>This is an experience page</h1>
+  <div id="experience">
+      <timeline tasks="show"></timeline>
   </div>
 </template>
+
+<script>
+import Timeline from '@/components/Timeline.vue'
+
+export default {
+  name: 'experience',
+  components: {
+    Timeline
+  }
+}
+</script>
+
+<style>
+
+</style>

@@ -1,5 +1,20 @@
 <template>
-  <div class="portfolio">
-    <h1>This is a portfolio page</h1>
+  <div id="portfolio">
+      <timeline tasks="hide"></timeline>
   </div>
 </template>
+
+<script>
+import Timeline from '@/components/Timeline.vue'
+
+export default {
+  name: 'portfolio',
+  components: {
+    Timeline
+  }
+}
+</script>
+
+<style>
+
+</style>
