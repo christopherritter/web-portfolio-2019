@@ -21,7 +21,7 @@
           href="#"
           class="btn btn-bubble btn-bubble-experience rounded-circle"
           role="button"
-          v-on:click="toggleTasks"
+          v-on:click="toggleTasks(job)"
         ></a>
         <div class="btn btn-bubble-line"></div>
       </div>
@@ -53,7 +53,7 @@
               href="#"
               class="btn btn-bubble-sm btn-bubble-experience rounded-circle"
               role="button"
-              v-on:click="task.showTask = !task.showTask"
+              v-on:click="task.showDeliverable = !task.showDeliverable"
             ></a>
             <div class="btn btn-bubble-line"></div>
           </div>
@@ -335,16 +335,16 @@ export default {
         }
       }
     },
-    toggleTasks: function(j, t) {
-      for (j = 0; j < this.jobs.length; j++) {
-        for (t = 0; t < this.jobs[j].tasks.length; t++) {
-          if (this.jobs[j].tasks[t].showTask) {
-            this.jobs[j].tasks[t].showTask = false;
-          } else {
-            this.jobs[j].tasks[t].showTask = true;
-          }
+    toggleTasks: function( jobs, t ) {
+      for (t = 0; t < jobs.tasks.length; t++) {
+        if (jobs.tasks[t].showTask) {
+          jobs.tasks[t].showTask = false;
+          jobs.tasks[t].showDeliverable = false;
+        } else {
+          jobs.tasks[t].showTask = true;
         }
       }
+      
     },
     checkDeliverables: function(j, t) {
       if (this.deliverables === "show") {
