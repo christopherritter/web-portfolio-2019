@@ -1,6 +1,6 @@
 <template>
   <div id="portfolio">
-      <timeline tasks="hide"></timeline>
+      <timeline deliverables="show"></timeline>
   </div>
 </template>
 
