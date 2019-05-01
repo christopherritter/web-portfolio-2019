@@ -1,72 +1,68 @@
 <template>
   <div class="timeline">
     <div
-      class="tl-job clearfix"
+      class="tl-job"
       v-for="job in jobs"
       v-bind:key="job.id"
     >
-      <div class="tl-date">
-        <div
-          class="tl-date-flag"
-          v-if="job.startDate == job.endDate"
-        >{{ job.endDate }}</div>
-        <div
-          class="tl-date-flag"
-          v-else
-        >{{ job.startDate }} &ndash; {{ job.endDate }}</div>
-      </div>
 
-      <div class="tl-line">
-        <a
-          href="#"
-          class="btn btn-bubble btn-bubble-experience rounded-circle"
-          role="button"
-          v-on:click="toggleTasks(job)"
-        ></a>
-        <div class="btn btn-bubble-line"></div>
-      </div>
+      <!-- Job -->
 
-      <div class="tl-event clearfix">
-        <h5 class="tl-event-job">{{ job.title }}</h5>
-        <h6 class="tl-event-company">{{ job.company }}</h6>
-      </div>
-
-      <!-- Task List -->
-
-      <div class="tl-task-list">
-
-        <!-- Task -->
-
-        <div
-          class="tl-task clearfix"
-          v-for="task in job.tasks"
-          v-bind:key="task"
-        >
-
-          <!-- Task Bubble -->
-
+      <div class="tl-header d-flex">
+        <div class="tl-date">
           <div
-            class="tl-line"
-            v-if="task.showTask === true"
-          >
+            class="tl-date-flag"
+            v-if="job.startDate == job.endDate"
+          >{{ job.endDate }}</div>
+          <div
+            class="tl-date-flag"
+            v-else
+          >{{ job.startDate }} &ndash; {{ job.endDate }}</div>
+        </div>
+
+        <div class="tl-line-job">
+          <a
+            href="#"
+            class="btn btn-bubble"
+            role="button"
+            v-on:click="toggleTasks(job)"
+          ></a>
+          <div class="bubble-line"></div>
+        </div>
+
+        <div class="tl-event">
+          <h5 class="tl-event-job">{{ job.title }}</h5>
+          <h6 class="tl-event-company">{{ job.company }}</h6>
+        </div>
+      </div>
+
+      <!-- Tasks -->
+
+      <div
+        class="tl-task"
+        v-for="task in job.tasks"
+        v-bind:key="task"
+      >
+
+        <!-- Description -->
+
+        <div
+          class="tl-desc d-flex"
+          v-if="task.showTask === true"
+        >
+          <div class="tl-line-desc">
             <a
               href="#"
-              class="btn btn-bubble-sm btn-bubble-experience rounded-circle"
+              class="btn btn-bubble-sm rounded-circle"
               role="button"
               v-on:click="task.showDeliverable = !task.showDeliverable"
             ></a>
-            <div class="btn btn-bubble-line"></div>
+            <div class="bubble-line"></div>
           </div>
-
-          <!-- Task Description -->
-
-          <div
-            class="tl-task-desc clearfix"
-            v-if="task.showTask === true"
-          >
-            <span class="tl-task-desc-lit">
-              {{ task.description }}
-            </span>
+          <div class="tl-desc-text">
+            {{ task.description }}
+          </div>
+          <div class="ml-auto">
             <a
               href="#"
               class="btn btn-view"
@@ -83,39 +79,48 @@
               </svg>
             </a>
           </div>
+        </div>
 
-          <!-- Task Deliverable -->
+        <!-- Skills -->
 
-          <div
-            class="tl-task-deliverable"
-            v-if="task.showDeliverable === true"
-          >
-
-            <!-- Task Deliverable Bubble -->
-
-            <div class="tl-line">
-              <a
-                href="#"
-                class="btn btn-bubble-sm btn-bubble-portfolio rounded-circle"
-                role="button"
-                v-on:click="task.showDeliverable = !task.showDeliverable"
-              ></a>
-              <div class="btn btn-bubble-line"></div>
-            </div>
-
-            <!-- Task Deliverable Description -->
-
-            <div class="tl-task-deliverable-desc">
-              <div class="jumbotron">
-                <img src="../assets/CX10-Home.png">
-              </div>
-            </div>
-
+        <div class="tl-skills d-flex">
+          <div class="tl-line-skills">
+            <div class="bubble-line"></div>
           </div>
+          <div class="tl-skill-list">
+            <a
+              href="#"
+              class="btn btn-skill"
+              v-for="skill in task.skills"
+              v-bind:key="skill"
+            >{{ skill }}</a>
+          </div>
+        </div>
 
+        <!-- Deliverables -->
+
+        <div
+          class="tl-delis d-flex"
+          v-if="task.showDeliverable === true"
+        >
+          <div class="tl-line-delis align-items-stretch">
+            <a
+              href="#"
+              class="btn btn-bubble-sm rounded-circle"
+              role="button"
+              v-on:click="task.showDeliverable = !task.showDeliverable"
+            ></a>
+            <div class="bubble-line"></div>
+          </div>
+          <div class="tl-task-deliverable-desc">
+            <div class="jumbotron">
+              <img src="../assets/CX10-Home.png">
+            </div>
+          </div>
         </div>
 
       </div>
+
     </div>
   </div>
 </template>
@@ -134,30 +139,35 @@ var data = function() {
           {
             description:
               "Provided design assistance to local, remote, and offshore development teams by delivering wireframes and various UI elements (fonts, icons, colors) within an Agile environment.",
+            skills: ["ux", "ui"],
             showTask: true,
             showDeliverable: false
           },
           {
             description:
               "Developed prototypes using Java/SmartGWT to demonstrate interactions and responsive layouts.",
+            skills: ["ux", "ui"],
             showTask: true,
             showDeliverable: false
           },
           {
             description:
               "Redesigned UI of two flagship products using Adobe XD for concept design and feedback.",
+            skills: ["ux", "ui"],
             showTask: true,
             showDeliverable: false
           },
           {
             description:
               "Developed the front-end for the desktop solution using QT/C++.",
+            skills: ["ux", "ui"],
             showTask: true,
             showDeliverable: false
           },
           {
             description:
               "Refactored ASP for the online portal to utilize Bootstrap/Sass for responsive layouts.",
+            skills: ["ux", "ui"],
             showTask: true,
             showDeliverable: false
           }
@@ -174,6 +184,7 @@ var data = function() {
           {
             description:
               "Contracted to provide front-end assistance (HTML/CSS/JS) for Crown Equipment to implement a responsive design for their corporate site managed by Adobe Experience Manager.",
+            skills: ["ux", "ui"],
             showTask: true,
             showDeliverable: false
           }
@@ -190,30 +201,35 @@ var data = function() {
           {
             description:
               "Brainstormed concepts with machine operators using Gamestorming techniques to generate new ideas.",
+            skills: ["ux", "ui"],
             showTask: true,
             showDeliverable: false
           },
           {
             description:
               "Developed HTML/Bootstrap prototypes for field testing with machine operators.",
+            skills: ["ux", "ui"],
             showTask: true,
             showDeliverable: false
           },
           {
             description:
               "Conducted field research of the construction industry across the US and Canada, providing top level reports of my findings to primary stakeholders.",
+            skills: ["ux", "ui"],
             showTask: true,
             showDeliverable: false
           },
           {
             description:
               "Modeled an excavator and work site using Trimble SketchUp.",
+            skills: ["ux", "ui"],
             showTask: true,
             showDeliverable: false
           },
           {
             description:
               "Provided design assets for Android/Vuforia prototypes, and for production within an Agile environment, which included style guides and custom icons for Android applications.",
+            skills: ["ux", "ui"],
             showTask: true,
             showDeliverable: false
           }
@@ -230,30 +246,35 @@ var data = function() {
           {
             description:
               "Created annotated wireframes to support the development of Lexis Advance.",
+            skills: ["ux", "ui"],
             showTask: true,
             showDeliverable: false
           },
           {
             description:
               "Conducted concept testing and usability research with legal professionals, and delivered top level reports of my discussions to primary stakeholders. ",
+            skills: ["ux", "ui"],
             showTask: true,
             showDeliverable: false
           },
           {
             description:
               "Lead brainstorming workshops with legal professionals using Gamestorming techniques to generate new ideas.",
+            skills: ["ux", "ui"],
             showTask: true,
             showDeliverable: false
           },
           {
             description:
               "Founding member of the Customer Discovery & Innovation team which designed, prototyped, and tested the most popular concepts from our innovation pipeline.",
+            skills: ["ux", "ui"],
             showTask: true,
             showDeliverable: false
           },
           {
             description:
               "Design Lead for several innovative products including Lexis Answers.",
+            skills: ["ux", "ui"],
             showTask: true,
             showDeliverable: false
           }
@@ -265,41 +286,47 @@ var data = function() {
         company: "Bridge Worldwide",
         startDate: 2009,
         endDate: 2010,
-        location: "",
+        location: "Cincinnati, Ohio",
         tasks: [
           {
             description:
               "Planned the digital experience of social, mobile, and web applications for corporate clients that included P&G, Pearle Vision, and Red Bull.",
+            skills: ["ux"],
             showTask: true,
             showDeliverable: false
           },
           {
             description:
               "Lead brainstorming sessions with creative, technical, and business leads to generate new ideas.",
+            skills: ["ux"],
             showTask: true,
             showDeliverable: false
           },
           {
             description:
               "Illustrated user flows, site maps, and wireframes to assist the design and development teams.",
+            skills: ["ux"],
             showTask: true,
             showDeliverable: false
           },
           {
             description:
               "Documented features and functionality for project management, and provided competitive analysis of similar products on the market.",
+            skills: ["ux"],
             showTask: true,
             showDeliverable: false
           },
           {
             description:
               "Conducted usability testing with potential customers and reported insights back to the team.",
+            skills: ["ux"],
             showTask: true,
             showDeliverable: false
           },
           {
             description:
               "Presented initial concepts, customer feedback, and other deliverables to the clients.",
+            skills: ["ux"],
             showTask: true,
             showDeliverable: false
           }
@@ -335,7 +362,7 @@ export default {
         }
       }
     },
-    toggleTasks: function( jobs, t ) {
+    toggleTasks: function(jobs, t) {
       for (t = 0; t < jobs.tasks.length; t++) {
         if (jobs.tasks[t].showTask) {
           jobs.tasks[t].showTask = false;
@@ -344,7 +371,6 @@ export default {
           jobs.tasks[t].showTask = true;
         }
       }
-      
     },
     checkDeliverables: function(j, t) {
       if (this.deliverables === "show") {
@@ -369,8 +395,6 @@ export default {
 .tl-date {
   width: 135px;
   padding-right: 10px;
-  margin-left: -145px;
-  float: left;
 }
 
 .tl-date-flag {
@@ -383,31 +407,42 @@ export default {
   text-align: center;
 }
 
-.tl-line {
-  float: left;
-}
-
 .btn-bubble {
+  border-radius: 50% !important;
   width: 80px;
   height: 80px;
 }
 
 .btn-bubble-sm {
+  border-radius: 50% !important;
   width: 50px;
   height: 50px;
 }
 
-.btn-bubble-experience {
+.tl-line-job a,
+.tl-line-desc a {
   background-color: #f1a430;
   border: 6px solid #3e3e3e;
 }
 
-.btn-bubble-portfolio {
+.tl-line-desc,
+.tl-line-delis {
+  margin-left: 150px;
+}
+
+.tl-line-skills {
+  margin-left: 172px;
+}
+
+.tl-line-delis a {
   background-color: #84a86b;
   border: 6px solid #3e3e3e;
 }
+.tl-line-delis .bubble-line {
+  height: 100%;
+}
 
-.btn-bubble-line {
+.bubble-line {
   display: block;
   width: 6px;
   height: 40px;
@@ -422,12 +457,8 @@ export default {
   margin-bottom: 60px;
 }
 
-.tl-job:last-child .btn-bubble-line {
+.tl-job:last-child .bubble-line {
   display: none;
-}
-
-.tl-event {
-  padding-left: 120px;
 }
 
 h5.tl-event-job {
@@ -458,21 +489,12 @@ h6.tl-event-company {
   text-decoration: none;
 }
 
-.tl-task {
-  margin-left: 14px;
-}
-
 .tl-task-desc {
   position: relative;
 }
 
-.tl-task-desc,
-.tl-task-deliverable-desc {
-  margin-left: 104px;
-}
-
 .tl-task-deliverable-desc .jumbotron {
-  padding: 35px;
+  padding: 15px;
   color: #fff;
   background-color: #3e3e3e;
 }
@@ -484,12 +506,5 @@ h6.tl-event-company {
 .tl-task-desc-lit {
   float: left;
   margin-right: 50px;
-}
-
-.btn-view {
-  position: absolute;
-  float: right;
-  top: 0;
-  right: 0;
 }
 </style>
