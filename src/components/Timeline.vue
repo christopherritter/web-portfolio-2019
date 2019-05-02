@@ -21,12 +21,11 @@
         </div>
 
         <div class="tl-line-job">
-          <a
-            href="#"
-            class="btn btn-bubble"
+          <button
             role="button"
+            class="btn btn-bubble"
             v-on:click="toggleTasks(job)"
-          ></a>
+          ></button>
           <div class="bubble-line"></div>
         </div>
 
@@ -41,7 +40,7 @@
       <div
         class="tl-task"
         v-for="task in job.tasks"
-        v-bind:key="task"
+        v-bind:key="task.id"
       >
 
         <!-- Description -->
@@ -51,20 +50,19 @@
           v-if="task.showTask === true"
         >
           <div class="tl-line-desc">
-            <a
-              href="#"
-              class="btn btn-bubble-sm rounded-circle"
+            <button
               role="button"
+              class="btn btn-bubble-sm rounded-circle"
               v-on:click="task.showDeliverable = !task.showDeliverable"
-            ></a>
+            ></button>
             <div class="bubble-line"></div>
           </div>
           <div class="tl-desc-text">
             {{ task.description }}
           </div>
           <div class="ml-auto">
-            <a
-              href="#"
+            <button
+              role="button"
               class="btn btn-view"
               v-on:click="task.showDeliverable = !task.showDeliverable"
             >
@@ -77,7 +75,7 @@
                   d="M15.5,9C16.2,9 16.79,8.76 17.27,8.27C17.76,7.79 18,7.2 18,6.5C18,5.83 17.76,5.23 17.27,4.73C16.79,4.23 16.2,4 15.5,4C14.83,4 14.23,4.23 13.73,4.73C13.23,5.23 13,5.83 13,6.5C13,7.2 13.23,7.79 13.73,8.27C14.23,8.76 14.83,9 15.5,9M19.31,8.91L22.41,12L21,13.41L17.86,10.31C17.08,10.78 16.28,11 15.47,11C14.22,11 13.16,10.58 12.3,9.7C11.45,8.83 11,7.77 11,6.5C11,5.27 11.45,4.2 12.33,3.33C13.2,2.45 14.27,2 15.5,2C16.77,2 17.83,2.45 18.7,3.33C19.58,4.2 20,5.27 20,6.5C20,7.33 19.78,8.13 19.31,8.91M16.5,18H5.5L8.25,14.5L10.22,16.83L12.94,13.31L16.5,18M18,13L20,15V20C20,20.55 19.81,21 19.41,21.4C19,21.79 18.53,22 18,22H4C3.45,22 3,21.79 2.6,21.4C2.21,21 2,20.55 2,20V6C2,5.47 2.21,5 2.6,4.59C3,4.19 3.45,4 4,4H9.5C9.2,4.64 9.03,5.31 9,6H4V20H18V13Z"
                 />
               </svg>
-            </a>
+            </button>
           </div>
         </div>
 
@@ -89,11 +87,10 @@
         >
           <div class="tl-line-delis">
             
-            <a
-              href="#"
-              class="btn btn-bubble-sm rounded-circle"
+            <button
               role="button"
-            ></a>
+              class="btn btn-bubble-sm rounded-circle"
+            ></button>
             <div class="bubble-line"></div>
           </div>
           <div class="tl-task-deliverable-desc">
@@ -110,12 +107,12 @@
             <div class="bubble-line"></div>
           </div>
           <div class="tl-skill-list">
-            <a
-              href="#"
+            <button
+              role="button"
               class="btn btn-skill"
               v-for="skill in task.skills"
-              v-bind:key="skill"
-            >{{ skill }}</a>
+              v-bind:key="skill.id"
+            >{{ skill }}</button>
           </div>
         </div>
 
@@ -137,6 +134,7 @@ var data = function() {
         endDate: "Now",
         tasks: [
           {
+            id: 0,
             description:
               "Provided design assistance to local, remote, and offshore development teams by delivering wireframes and various UI elements (fonts, icons, colors) within an Agile environment.",
             skills: ["ux", "ui"],
@@ -144,6 +142,7 @@ var data = function() {
             showDeliverable: false
           },
           {
+            id: 1,
             description:
               "Developed prototypes using Java/SmartGWT to demonstrate interactions and responsive layouts.",
             skills: ["ux", "ui"],
@@ -151,6 +150,7 @@ var data = function() {
             showDeliverable: false
           },
           {
+            id: 2,
             description:
               "Redesigned UI of two flagship products using Adobe XD for concept design and feedback.",
             skills: ["ux", "ui"],
@@ -158,6 +158,7 @@ var data = function() {
             showDeliverable: false
           },
           {
+            id: 3,
             description:
               "Developed the front-end for the desktop solution using QT/C++.",
             skills: ["ux", "ui"],
@@ -165,6 +166,7 @@ var data = function() {
             showDeliverable: false
           },
           {
+            id: 4,
             description:
               "Refactored ASP for the online portal to utilize Bootstrap/Sass for responsive layouts.",
             skills: ["ux", "ui"],
@@ -182,6 +184,7 @@ var data = function() {
         location: "New Bremen, Ohio",
         tasks: [
           {
+            id: 0,
             description:
               "Contracted to provide front-end assistance (HTML/CSS/JS) for Crown Equipment to implement a responsive design for their corporate site managed by Adobe Experience Manager.",
             skills: ["ux", "ui"],
@@ -199,6 +202,7 @@ var data = function() {
         location: "Huber Heights, Ohio",
         tasks: [
           {
+            id: 0,
             description:
               "Brainstormed concepts with machine operators using Gamestorming techniques to generate new ideas.",
             skills: ["ux", "ui"],
@@ -206,6 +210,7 @@ var data = function() {
             showDeliverable: false
           },
           {
+            id: 1,
             description:
               "Developed HTML/Bootstrap prototypes for field testing with machine operators.",
             skills: ["ux", "ui"],
@@ -213,6 +218,7 @@ var data = function() {
             showDeliverable: false
           },
           {
+            id: 2,
             description:
               "Conducted field research of the construction industry across the US and Canada, providing top level reports of my findings to primary stakeholders.",
             skills: ["ux", "ui"],
@@ -220,6 +226,7 @@ var data = function() {
             showDeliverable: false
           },
           {
+            id: 3,
             description:
               "Modeled an excavator and work site using Trimble SketchUp.",
             skills: ["ux", "ui"],
@@ -227,6 +234,7 @@ var data = function() {
             showDeliverable: false
           },
           {
+            id: 4,
             description:
               "Provided design assets for Android/Vuforia prototypes, and for production within an Agile environment, which included style guides and custom icons for Android applications.",
             skills: ["ux", "ui"],
@@ -244,6 +252,7 @@ var data = function() {
         location: "Miamisburg, Ohio",
         tasks: [
           {
+            id: 0,
             description:
               "Created annotated wireframes to support the development of Lexis Advance.",
             skills: ["ux", "ui"],
@@ -251,6 +260,7 @@ var data = function() {
             showDeliverable: false
           },
           {
+            id: 1,
             description:
               "Conducted concept testing and usability research with legal professionals, and delivered top level reports of my discussions to primary stakeholders. ",
             skills: ["ux", "ui"],
@@ -258,6 +268,7 @@ var data = function() {
             showDeliverable: false
           },
           {
+            id: 2,
             description:
               "Lead brainstorming workshops with legal professionals using Gamestorming techniques to generate new ideas.",
             skills: ["ux", "ui"],
@@ -265,6 +276,7 @@ var data = function() {
             showDeliverable: false
           },
           {
+            id: 3,
             description:
               "Founding member of the Customer Discovery & Innovation team which designed, prototyped, and tested the most popular concepts from our innovation pipeline.",
             skills: ["ux", "ui"],
@@ -272,6 +284,7 @@ var data = function() {
             showDeliverable: false
           },
           {
+            id: 4,
             description:
               "Design Lead for several innovative products including Lexis Answers.",
             skills: ["ux", "ui"],
@@ -289,6 +302,7 @@ var data = function() {
         location: "Cincinnati, Ohio",
         tasks: [
           {
+            id: 0,
             description:
               "Planned the digital experience of social, mobile, and web applications for corporate clients that included P&G, Pearle Vision, and Red Bull.",
             skills: ["ux"],
@@ -296,6 +310,7 @@ var data = function() {
             showDeliverable: false
           },
           {
+            id: 1,
             description:
               "Lead brainstorming sessions with creative, technical, and business leads to generate new ideas.",
             skills: ["ux"],
@@ -303,6 +318,7 @@ var data = function() {
             showDeliverable: false
           },
           {
+            id: 2,
             description:
               "Illustrated user flows, site maps, and wireframes to assist the design and development teams.",
             skills: ["ux"],
@@ -310,6 +326,7 @@ var data = function() {
             showDeliverable: false
           },
           {
+            id: 3,
             description:
               "Documented features and functionality for project management, and provided competitive analysis of similar products on the market.",
             skills: ["ux"],
@@ -317,6 +334,7 @@ var data = function() {
             showDeliverable: false
           },
           {
+            id: 4,
             description:
               "Conducted usability testing with potential customers and reported insights back to the team.",
             skills: ["ux"],
@@ -324,6 +342,7 @@ var data = function() {
             showDeliverable: false
           },
           {
+            id: 5,
             description:
               "Presented initial concepts, customer feedback, and other deliverables to the clients.",
             skills: ["ux"],
@@ -433,8 +452,8 @@ h6.tl-company {
   margin-right: 50px;
 }
 
-.tl-line-job a,
-.tl-line-desc a {
+.tl-line-job button,
+.tl-line-desc button {
   background-color: #f1a430;
   border: 5px solid #3e3e3e;
 }
@@ -453,7 +472,7 @@ h6.tl-company {
   margin-right: 50px;
 }
 
-.tl-line-delis a {
+.tl-line-delis button {
   background-color: #84a86b;
   border: 5px solid #3e3e3e;
 }
