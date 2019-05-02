@@ -86,7 +86,7 @@
           v-if="task.showDeliverable === true"
         >
           <div class="tl-line-delis">
-            
+
             <button
               role="button"
               class="btn btn-bubble-sm rounded-circle"
@@ -123,60 +123,37 @@
 </template>
 
 <script>
-import jobStore from '../jobStore'
+import jobStore from "../jobStore";
 
 export default {
   name: "timeline",
   data() {
     return {
       jobStore: jobStore.data
-    }
+    };
   },
   props: ["tasks", "deliverables"],
   created: function() {
-    var j; /* jobs */
-    var t; /* tasks */
-    this.checkTasks(j, t);
-    this.checkDeliverables(j, t);
+    if (this.tasks === "show") {
+      jobStore.methods.showTasks();
+    } else {
+      jobStore.methods.hideTasks();
+    }
+    if (this.deliverables === "show") {
+      jobStore.methods.showDelis();
+    } else {
+      jobStore.methods.hideDelis();
+    }
   },
   methods: {
-    checkTasks: function(j, t) {
-      if (this.tasks === "show") {
-        for (j = 0; j < jobStore.jobs.length; j++) {
-          for (t = 0; t < jobStore.jobs[j].tasks.length; t++) {
-            jobStore.jobs[j].tasks[t].showTask = true;
-          }
-        }
-      } else {
-        for (j = 0; j < jobStore.jobs.length; j++) {
-          for (t = 0; t < jobStore.jobs[j].tasks.length; t++) {
-            jobStore.jobs[j].tasks[t].showTask = false;
-          }
-        }
-      }
-    },
-    toggleTasks: function(jobs, t) {
-      for (t = 0; t < jobs.tasks.length; t++) {
-        if (jobs.tasks[t].showTask) {
-          jobs.tasks[t].showTask = false;
-          jobs.tasks[t].showDeliverable = false;
+    toggleTasks: function(job) {
+      let t;
+      for (t = 0; t < jobStore.data.jobs[job.id].tasks.length; t++) {
+        let task = jobStore.data.jobs[job.id].tasks[t];
+        if (task.showTask) {
+          task.showTask = false;
         } else {
-          jobs.tasks[t].showTask = true;
-        }
-      }
-    },
-    checkDeliverables: function(j, t) {
-      if (this.deliverables === "show") {
-        for (j = 0; j < jobStore.jobs.length; j++) {
-          for (t = 0; t < jobStore.jobs[j].tasks.length; t++) {
-            jobStore.jobs[j].tasks[t].showDeliverable = true;
-          }
-        }
-      } else {
-        for (j = 0; j < jobStore.jobs.length; j++) {
-          for (t = 0; t < jobStore.jobs[j].tasks.length; t++) {
-            jobStore.jobs[j].tasks[t].showDeliverable = false;
-          }
+          task.showTask = true;
         }
       }
     }
@@ -273,7 +250,7 @@ h6.tl-company {
 }
 
 .btn-skill {
-  font-size: .75rem;
+  font-size: 0.75rem;
   padding: 0 4px;
   margin: 0 5px;
   color: #bcbcbc;

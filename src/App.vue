@@ -85,7 +85,6 @@
           for (t = 0; t < jobStore.data.jobs[j].tasks.length; t++) {
             for (s = 0; s < jobStore.data.jobs[j].tasks[t].skills.length; s++) {
               var skill = jobStore.data.jobs[j].tasks[t].skills[s];
-
               if (skills.indexOf(skill) === -1) {
                 skills.push(skill);
               }
