@@ -142,15 +142,15 @@ export default {
   methods: {
     checkTasks: function(j, t) {
       if (this.tasks === "show") {
-        for (j = 0; j < this.jobs.length; j++) {
-          for (t = 0; t < this.jobs[j].tasks.length; t++) {
-            this.jobs[j].tasks[t].showTask = true;
+        for (j = 0; j < jobStore.jobs.length; j++) {
+          for (t = 0; t < jobStore.jobs[j].tasks.length; t++) {
+            jobStore.jobs[j].tasks[t].showTask = true;
           }
         }
       } else {
-        for (j = 0; j < this.jobs.length; j++) {
-          for (t = 0; t < this.jobs[j].tasks.length; t++) {
-            this.jobs[j].tasks[t].showTask = false;
+        for (j = 0; j < jobStore.jobs.length; j++) {
+          for (t = 0; t < jobStore.jobs[j].tasks.length; t++) {
+            jobStore.jobs[j].tasks[t].showTask = false;
           }
         }
       }
@@ -167,15 +167,15 @@ export default {
     },
     checkDeliverables: function(j, t) {
       if (this.deliverables === "show") {
-        for (j = 0; j < this.jobs.length; j++) {
-          for (t = 0; t < this.jobs[j].tasks.length; t++) {
-            this.jobs[j].tasks[t].showDeliverable = true;
+        for (j = 0; j < jobStore.jobs.length; j++) {
+          for (t = 0; t < jobStore.jobs[j].tasks.length; t++) {
+            jobStore.jobs[j].tasks[t].showDeliverable = true;
           }
         }
       } else {
-        for (j = 0; j < this.jobs.length; j++) {
-          for (t = 0; t < this.jobs[j].tasks.length; t++) {
-            this.jobs[j].tasks[t].showDeliverable = false;
+        for (j = 0; j < jobStore.jobs.length; j++) {
+          for (t = 0; t < jobStore.jobs[j].tasks.length; t++) {
+            jobStore.jobs[j].tasks[t].showDeliverable = false;
           }
         }
       }
