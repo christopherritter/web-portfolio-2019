@@ -35,23 +35,11 @@
             </li>
           </ul>
           <ul class="navbar-nav sidebar-nav skills-nav">
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                href="#"
-              >Skills</a>
-            </li>
-            <li class="nav-item">
+            <li class="nav-item" v-for="job in jobStore.jobs">
               <a
                 class="nav-link subnav-link"
                 href="#"
-              >UX</a>
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link subnav-link"
-                href="#"
-              >UI</a>
+              >{{ job.id }}</a>
             </li>
           </ul>
         </div>
@@ -60,6 +48,19 @@
     </div>
   </div>
 </template>
+
+<script>
+import jobStore from './jobStore'
+
+export default {
+  name: "app",
+  data() {
+    return {
+      jobStore: jobStore.data
+    }
+  }
+};
+</script>
 
 <style>
 *:focus {
