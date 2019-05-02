@@ -204,36 +204,37 @@ const jobStore = {
     showTasks: function () {
       let j;
       let t;
-      for (j = 0; j < this.data.jobs.length; j++) {
-        for (t = 0; t < this.data.jobs[j].tasks.length; t++) {
-          this.jobs[j].tasks[t].showTask = true;
+      for (j = 0; j < jobStore.data.jobs.length; j++) {
+        for (t = 0; t < jobStore.data.jobs[j].tasks.length; t++) {
+          jobStore.data.jobs[j].tasks[t].showTask = true;
         }
       }
     },
     hideTasks: function () {
       let j;
       let t;
-      for (j = 0; j < this.data.jobs.length; j++) {
-        for (t = 0; t < this.data.jobs[j].tasks.length; t++) {
-          this.jobs[j].tasks[t].showTask = false;
+      for (j = 0; j < jobStore.data.jobs.length; j++) {
+        for (t = 0; t < jobStore.data.jobs[j].tasks.length; t++) {
+          jobStore.data.jobs[j].tasks[t].showTask = false;
         }
       }
     },
     showDelis: function () {
       let j;
       let t;
-      for (j = 0; j < this.data.jobs.length; j++) {
-        for (t = 0; t < this.data.jobs[j].tasks.length; t++) {
-          this.jobs[j].tasks[t].showDeliverable = true;
+      for (j = 0; j < jobStore.data.jobs.length; j++) {
+        for (t = 0; t < jobStore.data.jobs[j].tasks.length; t++) {
+          jobStore.data.jobs[j].tasks[t].showDeliverable = true;
         }
       }
     },
     hideDelis: function () {
+      this
       let j;
       let t;
-      for (j = 0; j < this.data.jobs.length; j++) {
-        for (t = 0; t < this.data.jobs[j].tasks.length; t++) {
-          this.jobs[j].tasks[t].showDeliverable = false;
+      for (j = 0; j < jobStore.data.jobs.length; j++) {
+        for (t = 0; t < jobStore.data.jobs[j].tasks.length; t++) {
+          jobStore.data.jobs[j].tasks[t].showDeliverable = false;
         }
       }
     }
