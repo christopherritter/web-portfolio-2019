@@ -50,11 +50,13 @@
                 href="#"
               >Skills</div>
             </li>
-            <li class="nav-item" v-for="skill in uniqueSkills" v-bind:key="skill">
+            <li class="nav-item" v-for="skill in uniqueSkills" v-bind:key="skill.id">
               <button
                 class="btn nav-link subnav-link"
+                v-bind:class="{ 'active': skill.isActive }"
                 role="button"
-              >{{ skill }}</button>
+                v-on:click="jobStore.method.toggleSkill(skill)"
+              >{{ skill.label }}</button>
             </li>
           </ul>
         </div>
@@ -76,22 +78,24 @@
     },
     computed: {
       uniqueSkills: function() {
-        var j;
-        var t;
-        var s;
-        var skills = [];
-
+        let j;
+        let t;
+        let s;
+        let skills = [];
+        let skillObjs = [];
         for (j = 0; j < jobStore.data.jobs.length; j++) {
           for (t = 0; t < jobStore.data.jobs[j].tasks.length; t++) {
             for (s = 0; s < jobStore.data.jobs[j].tasks[t].skills.length; s++) {
-              var skill = jobStore.data.jobs[j].tasks[t].skills[s];
+              let skill = jobStore.data.jobs[j].tasks[t].skills[s].label;
+              let skillObj = jobStore.data.jobs[j].tasks[t].skills[s];
               if (skills.indexOf(skill) === -1) {
                 skills.push(skill);
+                skillObjs.push(skillObj);
               }
             }
           }
         }
-        return skills;
+        return skillObjs;
       }
     }
   };
@@ -182,5 +186,8 @@
     padding: 1rem 1.5rem;
     border-left: 0.5rem solid #3e3e3e;
     border-radius: 0;
+  }
+  .skills-nav .nav-item .subnav-link.active {
+    border-left: 0.5rem solid rgba(230, 69, 67, 0.6);
   }
 </style>

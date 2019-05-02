@@ -102,7 +102,7 @@
 
         <!-- Skills -->
 
-        <div class="tl-skills d-flex">
+        <div class="tl-skills d-flex" v-if="task.showDeliverable === true || task.showTask === true">
           <div class="tl-line-skills">
             <div class="bubble-line"></div>
           </div>
@@ -110,9 +110,11 @@
             <button
               role="button"
               class="btn btn-skill"
+              v-bind:class="{ 'active': skill.isActive }"
               v-for="skill in task.skills"
               v-bind:key="skill.id"
-            >{{ skill }}</button>
+              v-on:click="jobStore.method.toggleSkill(skill)"
+            >{{ skill.label }}</button>
           </div>
         </div>
 
@@ -258,7 +260,7 @@ h6.tl-company {
   text-transform: uppercase;
 }
 
-.btn-skill .active {
+.btn-skill.active {
   color: #fff;
   border: 2px solid #e64543;
 }
