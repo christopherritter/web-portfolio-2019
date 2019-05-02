@@ -30,9 +30,9 @@
           <div class="bubble-line"></div>
         </div>
 
-        <div class="tl-event">
-          <h5 class="tl-event-job">{{ job.title }}</h5>
-          <h6 class="tl-event-company">{{ job.company }}</h6>
+        <div>
+          <h5 class="tl-job">{{ job.title }}</h5>
+          <h6 class="tl-company">{{ job.company }}</h6>
         </div>
       </div>
 
@@ -69,7 +69,7 @@
               v-on:click="task.showDeliverable = !task.showDeliverable"
             >
               <svg
-                style="width:24px;height:24px"
+                style="width:32px;height:32px"
                 viewBox="0 0 24 24"
               >
                 <path
@@ -78,6 +78,28 @@
                 />
               </svg>
             </a>
+          </div>
+        </div>
+
+        <!-- Deliverables -->
+
+        <div
+          class="tl-delis d-flex"
+          v-if="task.showDeliverable === true"
+        >
+          <div class="tl-line-delis">
+            
+            <a
+              href="#"
+              class="btn btn-bubble-sm rounded-circle"
+              role="button"
+            ></a>
+            <div class="bubble-line"></div>
+          </div>
+          <div class="tl-task-deliverable-desc">
+            <div class="jumbotron">
+              <img src="../assets/CX10-Home.png">
+            </div>
           </div>
         </div>
 
@@ -94,28 +116,6 @@
               v-for="skill in task.skills"
               v-bind:key="skill"
             >{{ skill }}</a>
-          </div>
-        </div>
-
-        <!-- Deliverables -->
-
-        <div
-          class="tl-delis d-flex"
-          v-if="task.showDeliverable === true"
-        >
-          <div class="tl-line-delis align-items-stretch">
-            <a
-              href="#"
-              class="btn btn-bubble-sm rounded-circle"
-              role="button"
-              v-on:click="task.showDeliverable = !task.showDeliverable"
-            ></a>
-            <div class="bubble-line"></div>
-          </div>
-          <div class="tl-task-deliverable-desc">
-            <div class="jumbotron">
-              <img src="../assets/CX10-Home.png">
-            </div>
           </div>
         </div>
 
@@ -407,6 +407,60 @@ export default {
   text-align: center;
 }
 
+h5.tl-job {
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+}
+
+h6.tl-company {
+  font-size: 1.75rem;
+  line-height: 2rem;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+.tl-desc-text {
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+
+.tl-line-job {
+  margin-right: 35px;
+}
+
+.tl-line-desc {
+  margin-right: 50px;
+}
+
+.tl-line-job a,
+.tl-line-desc a {
+  background-color: #f1a430;
+  border: 5px solid #3e3e3e;
+}
+
+.tl-line-desc,
+.tl-line-delis {
+  margin-left: 150px;
+}
+
+.tl-line-skills {
+  margin-left: 172px;
+  margin-right: 67px;
+}
+
+.tl-line-delis {
+  margin-right: 50px;
+}
+
+.tl-line-delis a {
+  background-color: #84a86b;
+  border: 5px solid #3e3e3e;
+}
+.tl-line-delis .bubble-line {
+  height: 100%;
+}
+
 .btn-bubble {
   border-radius: 50% !important;
   width: 80px;
@@ -419,33 +473,24 @@ export default {
   height: 50px;
 }
 
-.tl-line-job a,
-.tl-line-desc a {
-  background-color: #f1a430;
-  border: 6px solid #3e3e3e;
+.btn-view {
+  padding: 0;
+  margin-left: 10px;
+  margin-top: 5px;
 }
 
-.tl-line-desc,
-.tl-line-delis {
-  margin-left: 150px;
-}
-
-.tl-line-skills {
-  margin-left: 172px;
-}
-
-.tl-line-delis a {
-  background-color: #84a86b;
-  border: 6px solid #3e3e3e;
-}
-.tl-line-delis .bubble-line {
-  height: 100%;
+.btn-skill {
+  font-size: .75rem;
+  padding: 5px;
+  margin: 0 5px;
+  color: #fff;
+  border: 2px solid #e64543;
 }
 
 .bubble-line {
   display: block;
-  width: 6px;
-  height: 40px;
+  width: 5px;
+  height: 100%;
   border: none;
   border-radius: 0;
   padding: 0;
@@ -461,50 +506,18 @@ export default {
   display: none;
 }
 
-h5.tl-event-job {
-  font-size: 1.25rem;
-  line-height: 1.25rem;
-  font-weight: 600;
-}
-
-h6.tl-event-company {
-  font-size: 1.75rem;
-  line-height: 2rem;
-  font-weight: 400;
-  margin-bottom: 15px;
-}
-
-.tl-event .tl-event-task-list {
-  list-style: none;
-  padding-left: 0;
-}
-
-.tl-event .tl-event-task-list li {
-  padding-top: 20px;
-  padding-bottom: 10px;
-}
-
-.tl-event .btn-link {
-  font-size: 14px;
-  text-decoration: none;
-}
-
-.tl-task-desc {
-  position: relative;
+.tl-skills .tl-skill-list {
+  margin-bottom: 20px;
 }
 
 .tl-task-deliverable-desc .jumbotron {
   padding: 15px;
   color: #fff;
   background-color: #3e3e3e;
+  margin-bottom: 10px;
 }
 
 .tl-task-deliverable-desc img {
   width: 100%;
-}
-
-.tl-task-desc-lit {
-  float: left;
-  margin-right: 50px;
 }
 </style>
