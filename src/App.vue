@@ -45,16 +45,16 @@
           </ul>
           <ul class="navbar-nav sidebar-nav skills-nav">
             <li class="nav-item">
-              <a
-                class="nav-link nav-link"
+              <div
+                class="nav-link"
                 href="#"
-              >Skills</a>
+              >Skills</div>
             </li>
             <li class="nav-item" v-for="skill in uniqueSkills" v-bind:key="skill">
-              <a
-                class="nav-link subnav-link"
-                href="#"
-              >{{ skill }}</a>
+              <button
+                class="btn nav-link subnav-link"
+                role="button"
+              >{{ skill }}</button>
             </li>
           </ul>
         </div>
@@ -170,13 +170,18 @@
   .skills-nav {
     margin-top: 4rem;
   }
+  .nav-item {
+    border: none;
+  }
   .skills-nav .nav-item .nav-link {
     color: #fff;
     border-left: 0.5rem solid #e64543;
   }
   .skills-nav .nav-item .subnav-link {
+    color: #bcbcbc;
     height: 3.5rem;
     padding: 1rem 1.5rem;
-    border-left: 0.5rem solid rgba(230, 69, 67, 0.6);
+    border-left: 0.5rem solid #3e3e3e;
+    border-radius: 0;
   }
 </style>
