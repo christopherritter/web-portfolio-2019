@@ -482,59 +482,26 @@ export default new Vuex.Store({
           state.jobs[j].tasks[t].showDeliverable = false;
         }
       }
-    },
-    toggleSkills (state, skill) {
-      let j;
-      let t;
-      let s;
-      for (j = 0; j < state.jobs.length; j++) {
-        for (t = 0; t < state.jobs[j].tasks.length; t++) {
-          for (s = 0; s < state.jobs[j].tasks[t].skills.length; s++) {
-            if (skill.isActive) {
-              state.jobs[j].tasks[t].skills[s] = false;
-            } else {
-              state.jobs[j].tasks[t].skills[s] = false;
-            }
-          }
-        }
-      }
-    },
-    activateSkill (state, skill) {
-      let j;
-      let t;
-      let s;
-      for (j = 0; j < state.jobs.length; j++) {
-        for (t = 0; t < state.jobs[j].tasks.length; t++) {
-          for (s = 0; s < state.jobs[j].tasks[t].skills.length; s++) {
-            let currentSkill = state.jobs[j].tasks[t].skills[s];
-            if (skill.label == currentSkill.label) {
-              currentSkill.isActive = true;
-            } else {
-              currentSkill.isActive = false;
-            }
-          }
-        }
-      }
     }
   },
   actions: {
     showTasks (context) {
-      context.commit('showTasks')
+      context.commit('showTasks');
     },
     hideTasks (context) {
-      context.commit('hideTasks')
+      context.commit('hideTasks');
     },
     showDelis (context) {
-      context.commit('showDelis')
+      context.commit('showDelis');
     },
     hideDelis (context) {
-      context.commit('hideDelis')
+      context.commit('hideDelis');
     },
-    toggleSkills (context) {
-      context.commit('toggleSkills')
+    toggleSkills (context, payload) {
+      context.commit('toggleSkills', payload);
     },
-    activateSkill (context) {
-      context.commit('activateSkill')
+    activateSkill (context, payload) {
+      context.commit('activateSkill', payload);
     }
   }
 })

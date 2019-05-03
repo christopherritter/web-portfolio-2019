@@ -102,7 +102,10 @@
 
         <!-- Skills -->
 
-        <div class="tl-skills d-flex" v-if="task.showDeliverable === true || task.showTask === true">
+        <div
+          class="tl-skills d-flex"
+          v-if="task.showDeliverable === true || task.showTask === true"
+        >
           <div class="tl-line-skills">
             <div class="bubble-line"></div>
           </div>
@@ -113,7 +116,7 @@
               v-bind:class="{ 'active': skill.isActive }"
               v-for="skill in task.skills"
               v-bind:key="skill.id"
-              v-on:click="store.dispatch('toggleSkill')"
+              v-on:click="toggleSkills(skill)"
             >{{ skill.label }}</button>
           </div>
         </div>
@@ -131,16 +134,16 @@ export default {
   name: "timeline",
   store,
   props: ["tasks", "deliverables"],
-  /*created: function() {
+  created: function() {
     if (this.tasks === "show") {
-      store.dispatch('showTasks');
+      store.dispatch("showTasks");
     } else {
-      store.dispatch('hideTasks');
+      store.dispatch("hideTasks");
     }
     if (this.deliverables === "show") {
-      store.dispatch('showDelis');
+      store.dispatch("showDelis");
     } else {
-      store.dispatch('hideDelis');
+      store.dispatch("hideDelis");
     }
   },
   methods: {
@@ -154,8 +157,23 @@ export default {
           task.showTask = true;
         }
       }
+    },
+    toggleSkills(skill) {
+      let j;
+      let t;
+      let s;
+      for (j = 0; j < store.state.jobs.length; j++) {
+        for (t = 0; t < store.state.jobs[j].tasks.length; t++) {
+          for (s = 0; s < store.state.jobs[j].tasks[t].skills.length; s++) {
+            let currentSkill = store.state.jobs[j].tasks[t].skills[s];
+            if (skill.label == currentSkill.label) {
+              currentSkill.isActive = !currentSkill.isActive
+            }
+          }
+        }
+      }
     }
-  }*/
+  }
 };
 </script>
 

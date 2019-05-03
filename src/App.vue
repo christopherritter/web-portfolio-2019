@@ -55,7 +55,7 @@
                 class="btn nav-link subnav-link"
                 v-bind:class="{ 'active': skill.isActive }"
                 role="button"
-                v-on:click="this.$store.dispatch('toggleSkills')"
+                v-on:click="this.$store.dispatch('activateSkill', skill)"
               >{{ skill.label }}</button>
             </li>
           </ul>
@@ -74,7 +74,7 @@
     store,
     computed: {
       uniqueSkills () {
-        return this.$store.getters.uniqueSkills;
+        return store.getters.uniqueSkills;
       }
     }
   };
