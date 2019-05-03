@@ -512,8 +512,8 @@ export default new Vuex.Store({
     hideDelis (context) {
       context.commit('hideDelis');
     },
-    toggleSkills (context, payload) {
-      context.commit('toggleSkills', payload);
+    toggleSkills (context, skill) {
+      context.commit('toggleSkills', skill);
     }
   }
 })

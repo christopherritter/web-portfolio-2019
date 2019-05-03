@@ -47,7 +47,7 @@
 
         <div
           class="tl-desc d-flex"
-          v-if="task.showTask === true"
+          v-if="task.showTask === true && relevantSkills"
         >
           <div class="tl-line-desc">
             <button
@@ -104,7 +104,7 @@
 
         <div
           class="tl-skills d-flex"
-          v-if="task.showDeliverable === true || task.showTask === true"
+          v-if="task.showDeliverable === true || task.showTask === true && relevantSkills"
         >
           <div class="tl-line-skills">
             <div class="bubble-line"></div>
@@ -146,6 +146,28 @@ export default {
       store.dispatch("hideDelis");
     }
   },
+  computed: {
+    relevantSkills: function() {
+      let j;
+      let t;
+      let s;
+      let relevantList = [];
+      for (j = 0; j < store.state.jobs.length; j++) {
+        for (t = 0; t < store.state.jobs[j].tasks.length; t++) {
+          for (s = 0; s < store.state.jobs[j].tasks[t].skills.length; s++) {
+            if (store.state.jobs[j].tasks[t].skills[s].isActive) {
+              relevantList.push(store.state.jobs[j].tasks[t].skills[s]);
+            }
+          }
+        }
+      }
+      if (relevantList === undefined || relevantList.length == 0) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+  },
   methods: {
     toggleTasks: function(job) {
       let t;
@@ -155,21 +177,6 @@ export default {
           task.showTask = false;
         } else {
           task.showTask = true;
-        }
-      }
-    },
-    toggleSkills(skill) {
-      let j;
-      let t;
-      let s;
-      for (j = 0; j < store.state.jobs.length; j++) {
-        for (t = 0; t < store.state.jobs[j].tasks.length; t++) {
-          for (s = 0; s < store.state.jobs[j].tasks[t].skills.length; s++) {
-            let currentSkill = store.state.jobs[j].tasks[t].skills[s];
-            if (skill.label == currentSkill.label) {
-              currentSkill.isActive = !currentSkill.isActive
-            }
-          }
         }
       }
     }
