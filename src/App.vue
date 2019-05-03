@@ -55,7 +55,7 @@
                 class="btn nav-link subnav-link"
                 v-bind:class="{ 'active': skill.isActive }"
                 role="button"
-                v-on:click="jobStore.method.toggleSkill(skill)"
+                v-on:click="this.$store.dispatch('toggleSkills')"
               >{{ skill.label }}</button>
             </li>
           </ul>
@@ -67,35 +67,14 @@
 </template>
 
 <script>
-  import jobStore from "./jobStore";
+  import store from "@/store";
 
   export default {
     name: "app",
-    data() {
-      return {
-        jobStore: jobStore.data
-      };
-    },
+    store,
     computed: {
-      uniqueSkills: function() {
-        let j;
-        let t;
-        let s;
-        let skills = [];
-        let skillObjs = [];
-        for (j = 0; j < jobStore.data.jobs.length; j++) {
-          for (t = 0; t < jobStore.data.jobs[j].tasks.length; t++) {
-            for (s = 0; s < jobStore.data.jobs[j].tasks[t].skills.length; s++) {
-              let skill = jobStore.data.jobs[j].tasks[t].skills[s].label;
-              let skillObj = jobStore.data.jobs[j].tasks[t].skills[s];
-              if (skills.indexOf(skill) === -1) {
-                skills.push(skill);
-                skillObjs.push(skillObj);
-              }
-            }
-          }
-        }
-        return skillObjs;
+      uniqueSkills () {
+        return this.$store.getters.uniqueSkills;
       }
     }
   };

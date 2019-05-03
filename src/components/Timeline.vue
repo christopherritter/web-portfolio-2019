@@ -2,7 +2,7 @@
   <div class="timeline">
     <div
       class="tl-job"
-      v-for="job in jobStore.jobs"
+      v-for="job in this.$store.state.jobs"
       v-bind:key="job.id"
     >
 
@@ -113,7 +113,7 @@
               v-bind:class="{ 'active': skill.isActive }"
               v-for="skill in task.skills"
               v-bind:key="skill.id"
-              v-on:click="jobStore.method.toggleSkill(skill)"
+              v-on:click="store.dispatch('toggleSkill')"
             >{{ skill.label }}</button>
           </div>
         </div>
@@ -125,33 +125,29 @@
 </template>
 
 <script>
-import jobStore from "../jobStore";
+import store from "@/store";
 
 export default {
   name: "timeline",
-  data() {
-    return {
-      jobStore: jobStore.data
-    };
-  },
+  store,
   props: ["tasks", "deliverables"],
-  created: function() {
+  /*created: function() {
     if (this.tasks === "show") {
-      jobStore.methods.showTasks();
+      store.dispatch('showTasks');
     } else {
-      jobStore.methods.hideTasks();
+      store.dispatch('hideTasks');
     }
     if (this.deliverables === "show") {
-      jobStore.methods.showDelis();
+      store.dispatch('showDelis');
     } else {
-      jobStore.methods.hideDelis();
+      store.dispatch('hideDelis');
     }
   },
   methods: {
     toggleTasks: function(job) {
       let t;
-      for (t = 0; t < jobStore.data.jobs[job.id].tasks.length; t++) {
-        let task = jobStore.data.jobs[job.id].tasks[t];
+      for (t = 0; t < store.state.jobs[job.id].tasks.length; t++) {
+        let task = store.state.jobs[job.id].tasks[t];
         if (task.showTask) {
           task.showTask = false;
         } else {
@@ -159,7 +155,7 @@ export default {
         }
       }
     }
-  }
+  }*/
 };
 </script>
 
