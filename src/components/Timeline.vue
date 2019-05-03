@@ -116,7 +116,7 @@
               v-bind:class="{ 'active': skill.isActive }"
               v-for="skill in task.skills"
               v-bind:key="skill.id"
-              v-on:click="toggleSkills(skill)"
+              v-on:click="$store.commit('toggleSkills', skill )"
             >{{ skill.label }}</button>
           </div>
         </div>

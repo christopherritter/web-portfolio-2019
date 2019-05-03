@@ -482,6 +482,21 @@ export default new Vuex.Store({
           state.jobs[j].tasks[t].showDeliverable = false;
         }
       }
+    },
+    toggleSkills( state, skill ) {
+      let j;
+      let t;
+      let s;
+      for (j = 0; j < state.jobs.length; j++) {
+        for (t = 0; t < state.jobs[j].tasks.length; t++) {
+          for (s = 0; s < state.jobs[j].tasks[t].skills.length; s++) {
+            let currentSkill = state.jobs[j].tasks[t].skills[s];
+            if (skill.label == currentSkill.label) {
+              currentSkill.isActive = !currentSkill.isActive
+            }
+          }
+        }
+      }
     }
   },
   actions: {
@@ -499,9 +514,6 @@ export default new Vuex.Store({
     },
     toggleSkills (context, payload) {
       context.commit('toggleSkills', payload);
-    },
-    activateSkill (context, payload) {
-      context.commit('activateSkill', payload);
     }
   }
 })
