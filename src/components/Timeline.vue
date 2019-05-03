@@ -26,7 +26,10 @@
             class="btn btn-bubble"
             v-on:click="toggleTasks(job)"
           ></button>
-          <div class="bubble-line"></div>
+          <div
+            class="bubble-line"
+            :class="{ 'bubble-line-tall' : !relevantSkills }"
+          ></div>
         </div>
 
         <div>
@@ -47,7 +50,7 @@
 
         <div
           class="tl-desc d-flex"
-          v-if="task.showTask === true && relevantSkills"
+          v-if="task.showTask === true && isRelevant(task)"
         >
           <div class="tl-line-desc">
             <button
@@ -83,7 +86,7 @@
 
         <div
           class="tl-delis d-flex"
-          v-if="task.showDeliverable === true"
+          v-if="task.showDeliverable === true && isRelevant(task)"
         >
           <div class="tl-line-delis">
 
@@ -104,7 +107,7 @@
 
         <div
           class="tl-skills d-flex"
-          v-if="task.showDeliverable === true || task.showTask === true && relevantSkills"
+          v-if="task.showDeliverable === true || task.showTask === true && isRelevant(task)"
         >
           <div class="tl-line-skills">
             <div class="bubble-line"></div>
@@ -115,7 +118,7 @@
               class="btn btn-skill"
               v-bind:class="{ 'active': skill.isActive }"
               v-for="skill in task.skills"
-              v-bind:key="skill.id"
+              v-bind:key="skill.label"
               v-on:click="$store.commit('toggleSkills', skill )"
             >{{ skill.label }}</button>
           </div>
@@ -169,6 +172,20 @@ export default {
     }
   },
   methods: {
+    isRelevant: function(task) {
+      let s;
+      let relevantList = [];
+      for (s = 0; s < task.skills.length; s++) {
+        if (task.skills[s].isActive) {
+          relevantList.push(s);
+        }
+      }
+      if (relevantList === undefined || relevantList.length == 0) {
+        return false;
+      } else {
+        return true;
+      }
+    },
     toggleTasks: function(job) {
       let t;
       for (t = 0; t < store.state.jobs[job.id].tasks.length; t++) {
@@ -290,11 +307,16 @@ h6.tl-company {
   display: block;
   width: 5px;
   height: 100%;
+  min-height: 10px;
   border: none;
   border-radius: 0;
   padding: 0;
   background-color: #3e3e3e;
   margin: 0 auto;
+}
+
+.tl-line-job .bubble-line-tall {
+  height: 50px;
 }
 
 .tl-job:last-child .btn-bubble {
