@@ -104,6 +104,15 @@ export default new Vuex.Store({
                 isActive: false
               }
             ],
+            deliverables: [
+              {
+                id: 0,
+                title: '',
+                subtitle: '',
+                img: 'img/CX10-Home.png',
+                description: ''
+              }
+            ],
             showTask: true,
             showDeliverable: false
           },

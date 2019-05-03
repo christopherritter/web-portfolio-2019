@@ -98,7 +98,9 @@
           </div>
           <div class="tl-task-deliverable-desc">
             <div class="jumbotron">
-              <img src="../assets/CX10-Home.png">
+              <div v-for="delis in task.deliverables" v-bind:key="delis.id">
+                <img :src="delis.img">
+              </div>
             </div>
           </div>
         </div>
