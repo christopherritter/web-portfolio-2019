@@ -63,7 +63,7 @@
           <div class="tl-desc-text">
             {{ task.description }}
           </div>
-          <div class="ml-auto">
+          <div class="ml-auto" v-if="task.deliverables">
             <button
               role="button"
               class="btn btn-view"
@@ -86,7 +86,7 @@
 
         <div
           class="tl-delis d-flex"
-          v-if="task.showDeliverable === true && isRelevant(task)"
+          v-if="task.showDeliverable === true && isRelevant(task) && task.deliverables"
         >
           <div class="tl-line-delis">
 
@@ -97,7 +97,7 @@
             <div class="bubble-line"></div>
           </div>
           <div class="tl-task-deliverable-desc">
-            <div class="jumbotron">
+            <div class="jumbotron" v-if="task.deliverables">
               <div v-for="delis in task.deliverables" v-bind:key="delis.id">
                 <img :src="delis.img">
               </div>
@@ -109,7 +109,7 @@
 
         <div
           class="tl-skills d-flex"
-          v-if="task.showDeliverable === true || task.showTask === true && isRelevant(task)"
+          v-if="task.showDeliverable === true && task.deliverables  || task.showTask === true && isRelevant(task)"
         >
           <div class="tl-line-skills">
             <div class="bubble-line"></div>
