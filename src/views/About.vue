@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div id="about">
 
     <div class="row">
       <div class="jumbotron">
@@ -21,7 +21,7 @@
           <b-progress
             :value="skill.rating"
             :max="max"
-            class="mb-3"
+            class="mb-4"
           ></b-progress>
         </div>
         <!--<PackChart :tweetData=loadData />-->

@@ -207,4 +207,7 @@ h1 .sub-header {
   border-left: 0.5rem solid #2f2f2f;
   color: #bcbcbc;
 }
+.progress .progress-bar {
+  background-color: #e64543;
+}
 </style>
