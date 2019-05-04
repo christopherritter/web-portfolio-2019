@@ -13,10 +13,13 @@
         <timeline></timeline>
       </div>
       <div class="col-sm-4">
-        <div v-for="skill in topSkills" v-bind:key="skill.label">
+        <div
+          v-for="skill in topSkills"
+          v-bind:key="skill.label"
+        >
           <h5>{{ skill.label }}</h5>
           <b-progress
-            :value="value"
+            :value="skill.rating"
             :max="max"
             class="mb-3"
           ></b-progress>
@@ -42,11 +45,17 @@ export default {
     Timeline
     /*PackChart*/
   },
+  data() {
+    return {
+      max: 50,
+      value: 33.333333333
+    };
+  },
   computed: {
     topSkills() {
       return store.getters.topSkills.slice(0, 6);
     }
-  },
+  }
   /*data: function() {
     return {
       loadData: []
