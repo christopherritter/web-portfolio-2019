@@ -9,19 +9,42 @@
     </div>
 
     <div class="row">
+      <div class="col-sm-8">
         <timeline></timeline>
+      </div>
+      <div class="col-sm-4">
+        <PackChart :tweetData=loadData />
+      </div>
     </div>
-    
+
   </div>
 </template>
 
 <script>
 import Timeline from "@/components/Timeline.vue";
+import PackChart from "@/components/Chart.vue";
+
+import * as d3 from "d3";
 
 export default {
   name: "about",
   components: {
-    Timeline
+    Timeline,
+    PackChart
+  },
+  data: function() {
+    return {
+      loadData: []
+    };
+  },
+  mounted() {
+    this.fetchData();
+  },
+  methods: {
+    async fetchData() {
+      let data = await d3.json("./tweets.json");
+      this.loadData = data;
+    }
   }
 };
 </script>

@@ -108,25 +108,31 @@
                 v-for="delis in task.deliverables"
                 v-bind:key="delis.id"
               >
+
+                <h4>{{ delis.title }}</h4>
+
+                <p v-if="delis.description">{{ delis.description }}</p>
+
                 <img
                   :src="delis.img"
                   @click="showDeli"
                 >
-                <p v-if="delis.description">{{ delis.description }}</p>
+
+                <!-- Deliverable Modal -->
 
                 <b-modal
-                  id="modal-1"
+                  :id="'modal-' + delis.id"
                   size="xl"
                   hide-footer
                   centered
                   :title="delis.title"
                 >
+                  <p v-if="delis.description">{{ delis.description }}</p>
                   <p class="m-2">
                     <img
                       :src="delis.img"
-                      @click="showDeli"
+                      @click="showDeli(delis.id)"
                     ></p>
-                    <p v-if="delis.description">{{ delis.description }}</p>
                 </b-modal>
 
               </div>
@@ -234,13 +240,13 @@ export default {
       }
     },
     showDeli() {
-      this.$root.$emit("bv::show::modal", "modal-1", "#btnShow");
+      this.$root.$emit("bv::show::modal", "modal-0", "#btnShow");
     },
     hideDeli() {
-      this.$root.$emit("bv::hide::modal", "modal-1", "#btnShow");
+      this.$root.$emit("bv::hide::modal", "modal-0", "#btnShow");
     },
     toggleDeli() {
-      this.$root.$emit("bv::toggle::modal", "modal-1", "#btnToggle");
+      this.$root.$emit("bv::toggle::modal", "modal-0", "#btnToggle");
     }
   }
 };
@@ -384,7 +390,17 @@ h5.tl-company {
   padding: 15px;
   color: #fff;
   background-color: #3e3e3e;
+  margin-top: 5px;
   margin-bottom: 10px;
+}
+
+.tl-task-deliverable-desc h4 {
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+.tl-task-deliverable-desc .jumbotron div:first-child h4 {
+  margin-top: 0px;
 }
 
 .tl-task-deliverable-desc img {
@@ -392,8 +408,10 @@ h5.tl-company {
 }
 
 .tl-task-deliverable-desc p {
-  margin-top: 20px;
-  margin-bottom: 5px;
+  font-size: 0.9rem;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  
 }
 .modal-mask {
   position: fixed;

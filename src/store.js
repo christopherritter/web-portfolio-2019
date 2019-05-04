@@ -13,9 +13,116 @@ export default new Vuex.Store({
         endDate: "Now",
         tasks: [{
             id: 0,
-            description: "Provided design assistance to local, remote, and offshore development teams by delivering wireframes and various UI elements (fonts, icons, colors) within an Agile environment.",
-            skills: [
+            description: "Refactored ASP.Net ASCX templates for the online portal to utilize Bootstrap/Sass for responsive layouts.",
+            skills: [{
+                label: "UI",
+                isActive: true
+              },
               {
+                label: "Bootstrap",
+                isActive: false
+              },
+              {
+                label: "Sass",
+                isActive: false
+              },
+              {
+                label: "ASCX",
+                isActive: false
+              }
+            ],
+            deliverables: [
+              {
+                id: 0,
+                title: 'Jenzabar ICS Design System',
+                img: 'img/JICS-Design-System_Home.png',
+                description: 'A new design system was created for Jenzabar ICS portlets completely from scratch using the application to display ASP.Net content.'
+              },
+              {
+                id: 1,
+                title: 'Design System Components',
+                img: 'img/JICS-Design-System_Tables.png',
+                description: 'Code samples were provided alongside functional examples of the Components which are constructed from ASP.Net Web Controls, and include the necessary Bootstrap to assist the developers.'
+              }
+            ],
+            showTask: true,
+            showDeliverable: false
+          },
+          {
+            id: 1,
+            description: "Developed the front-end for the desktop solution using QT Creator.",
+            skills: [{
+                label: "UX",
+                isActive: true
+              },
+              {
+                label: "UI",
+                isActive: true
+              },
+              {
+                label: "QT",
+                isActive: false
+              },
+              {
+                label: "QSS",
+                isActive: false
+              }
+            ],
+            deliverables: [{
+              id: 0,
+              title: 'CX 10 Home Screen',
+              img: 'img/CX10-Home.png',
+              description: 'The home screen for CX 10 provides users with a searchable directory of their available applications. When the user launches an application it appears on a recently viewed list next to the directory.'
+            }],
+            showTask: true,
+            showDeliverable: false
+          },
+          {
+            id: 2,
+            description: "Redesigned UI of two flagship products using Adobe XD for concept design and feedback.",
+            skills: [{
+                label: "UX",
+                isActive: true
+              },
+              {
+                label: "UI",
+                isActive: true
+              },
+              {
+                label: "XD",
+                isActive: false
+              }
+            ],
+            showTask: true,
+            showDeliverable: false
+          },
+          {
+            id: 3,
+            description: "Developed prototypes using SmartGWT to demonstrate interactions and responsive layouts.",
+            skills: [{
+                label: "UX",
+                isActive: true
+              },
+              {
+                label: "UI",
+                isActive: true
+              },
+              {
+                label: "SmartGWT",
+                isActive: false
+              },
+              {
+                label: "Prototyping",
+                isActive: false
+              }
+            ],
+            showTask: true,
+            showDeliverable: false
+          },
+          {
+            id: 4,
+            description: "Provided design assistance to local, remote, and offshore development teams by delivering wireframes and various UI elements (fonts, icons, colors) within an Agile environment.",
+            skills: [{
                 label: "UX",
                 isActive: true
               },
@@ -38,122 +145,20 @@ export default new Vuex.Store({
             ],
             showTask: true,
             showDeliverable: false
-          },
-          {
-            id: 1,
-            description: "Developed prototypes using SmartGWT to demonstrate interactions and responsive layouts.",
-            skills: [
-              {
-                label: "UX",
-                isActive: true
-              },
-              {
-                label: "UI",
-                isActive: true
-              },
-              {
-                label: "SmartGWT",
-                isActive: false
-              },
-              {
-                label: "Prototyping",
-                isActive: false
-              }
-            ],
-            showTask: true,
-            showDeliverable: false
-          },
-          {
-            id: 2,
-            description: "Redesigned UI of two flagship products using Adobe XD for concept design and feedback.",
-            skills: [
-              {
-                label: "UX",
-                isActive: true
-              },
-              {
-                label: "UI",
-                isActive: true
-              },
-              {
-                label: "XD",
-                isActive: false
-              }
-            ],
-            showTask: true,
-            showDeliverable: false
-          },
-          {
-            id: 3,
-            description: "Developed the front-end for the desktop solution using QT Creator.",
-            skills: [
-              {
-                label: "UX",
-                isActive: true
-              },
-              {
-                label: "UI",
-                isActive: true
-              },
-              {
-                label: "QT",
-                isActive: false
-              },
-              {
-                label: "QSS",
-                isActive: false
-              }
-            ],
-            deliverables: [
-              {
-                id: 0,
-                title: 'CX 10 Home Screen',
-                subtitle: 'The home screen for CX 10',
-                img: 'img/CX10-Home.png',
-                description: 'The home screen for CX 10 provides users with a searchable directory of their available applications. When the user launches an application it appears on a recently viewed list next to the directory.'
-              }
-            ],
-            showTask: true,
-            showDeliverable: false
-          },
-          {
-            id: 4,
-            description: "Refactored ASP.Net ASCX templates for the online portal to utilize Bootstrap/Sass for responsive layouts.",
-            skills: [
-              {
-                label: "UI",
-                isActive: true
-              },
-              {
-                label: "Bootstrap",
-                isActive: false
-              },
-              {
-                label: "Sass",
-                isActive: false
-              },
-              {
-                label: "ASCX",
-                isActive: false
-              }
-            ],
-            showTask: true,
-            showDeliverable: false
           }
         ]
       },
       {
         id: 1,
-        title: "Experience Design Consultant",
-        company: "Strategic Data Systems",
+        title: "Interface Design Consultant",
+        company: "Crown Equipment",
         startDate: 2015,
         endDate: 2015,
         location: "New Bremen, Ohio",
         tasks: [{
           id: 0,
           description: "Contracted to provide front-end assistance for Crown Equipment to implement a responsive design for their corporate site managed by Adobe Experience Manager.",
-          skills: [
-            {
+          skills: [{
               label: "UX",
               isActive: true
             },
@@ -178,6 +183,12 @@ export default new Vuex.Store({
               isActive: false
             }
           ],
+          deliverables: [{
+            id: 0,
+            title: 'Crown Industries Rebranding',
+            img: 'img/Crown-Website.png',
+            description: 'Adobe Experience Manager was used to rollout the new brand for Crown Industries. Bootstrap was used to display numerous components in a responsive layout, along with Sass to manage the CSS, which was compiled as part of the build process using Grunt.'
+          }],
           showTask: true,
           showDeliverable: false
         }]
@@ -194,10 +205,6 @@ export default new Vuex.Store({
             description: "Brainstormed concepts with machine operators using Gamestorming techniques to generate new ideas.",
             skills: [{
                 label: "UX",
-                isActive: true
-              },
-              {
-                label: "UI",
                 isActive: true
               },
               {
@@ -238,8 +245,7 @@ export default new Vuex.Store({
           {
             id: 2,
             description: "Conducted field research of the construction industry across the US and Canada, providing top level reports of my findings to primary stakeholders.",
-            skills: [
-              {
+            skills: [{
                 label: "UX",
                 isActive: true
               },
@@ -262,8 +268,7 @@ export default new Vuex.Store({
           {
             id: 3,
             description: "Modeled an excavator and work site using Trimble SketchUp.",
-            skills: [
-              {
+            skills: [{
                 label: "UI",
                 isActive: true
               },
@@ -282,8 +287,7 @@ export default new Vuex.Store({
           {
             id: 4,
             description: "Provided design assets for Android/Vuforia prototypes, and for production within an Agile environment, which included style guides and custom icons for Android applications.",
-            skills: [
-              {
+            skills: [{
                 label: "UI",
                 isActive: true
               },
@@ -328,10 +332,9 @@ export default new Vuex.Store({
             id: 0,
             description: "Created annotated wireframes to support the development of Lexis Advance.",
             skills: [{
-                label: "UX",
-                isActive: true
-              }
-            ],
+              label: "UX",
+              isActive: true
+            }],
             showTask: true,
             showDeliverable: false
           },
@@ -435,7 +438,7 @@ export default new Vuex.Store({
       },
       {
         id: 4,
-        title: "Senior Experience Planner",
+        title: "Experience Planner",
         company: "Bridge Worldwide",
         startDate: 2009,
         endDate: 2010,
@@ -482,10 +485,9 @@ export default new Vuex.Store({
             id: 2,
             description: "Illustrated user flows, site maps, and wireframes to assist the design and development teams.",
             skills: [{
-                label: "UX",
-                isActive: true
-              }
-            ],
+              label: "UX",
+              isActive: true
+            }],
             showTask: true,
             showDeliverable: false
           },
@@ -493,10 +495,9 @@ export default new Vuex.Store({
             id: 3,
             description: "Documented features and functionality for project management, and provided competitive analysis of similar products on the market.",
             skills: [{
-                label: "UX",
-                isActive: true
-              }
-            ],
+              label: "UX",
+              isActive: true
+            }],
             showTask: true,
             showDeliverable: false
           },
@@ -527,10 +528,9 @@ export default new Vuex.Store({
             id: 5,
             description: "Presented initial concepts, customer feedback, and other deliverables to the clients.",
             skills: [{
-                label: "UX",
-                isActive: true
-              }
-            ],
+              label: "UX",
+              isActive: true
+            }],
             showTask: true,
             showDeliverable: false
           }
@@ -539,7 +539,7 @@ export default new Vuex.Store({
     ]
   },
   getters: {
-    uniqueSkills (state) {
+    uniqueSkills(state) {
       let j;
       let t;
       let s;
@@ -561,7 +561,7 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    showTasks (state) {
+    showTasks(state) {
       let j;
       let t;
       for (j = 0; j < state.jobs.length; j++) {
@@ -570,7 +570,7 @@ export default new Vuex.Store({
         }
       }
     },
-    hideTasks (state) {
+    hideTasks(state) {
       let j;
       let t;
       for (j = 0; j < state.jobs.length; j++) {
@@ -579,7 +579,7 @@ export default new Vuex.Store({
         }
       }
     },
-    showDelis (state) {
+    showDelis(state) {
       let j;
       let t;
       for (j = 0; j < state.jobs.length; j++) {
@@ -588,7 +588,7 @@ export default new Vuex.Store({
         }
       }
     },
-    hideDelis (state) {
+    hideDelis(state) {
       let j;
       let t;
       for (j = 0; j < state.jobs.length; j++) {
@@ -597,7 +597,7 @@ export default new Vuex.Store({
         }
       }
     },
-    toggleSkills( state, skill ) {
+    toggleSkills(state, skill) {
       let j;
       let t;
       let s;
@@ -614,19 +614,19 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    showTasks (context) {
+    showTasks(context) {
       context.commit('showTasks');
     },
-    hideTasks (context) {
+    hideTasks(context) {
       context.commit('hideTasks');
     },
-    showDelis (context) {
+    showDelis(context) {
       context.commit('showDelis');
     },
-    hideDelis (context) {
+    hideDelis(context) {
       context.commit('hideDelis');
     },
-    toggleSkills (context, skill) {
+    toggleSkills(context, skill) {
       context.commit('toggleSkills', skill);
     }
   }
