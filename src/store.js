@@ -31,8 +31,7 @@ export default new Vuex.Store({
                 isActive: false
               }
             ],
-            deliverables: [
-              {
+            deliverables: [{
                 id: 0,
                 title: 'Jenzabar ICS Design System',
                 img: 'img/JICS-Design-System_Home.png',
@@ -558,6 +557,33 @@ export default new Vuex.Store({
         }
       }
       return skillObjs;
+    },
+    topSkills(state) {
+      let skillLabels = [];
+      let skillList = [];
+      for (let j = 0; j < state.jobs.length; j++) {
+        for (let t = 0; t < state.jobs[j].tasks.length; t++) {
+          for (let s = 0; s < state.jobs[j].tasks[t].skills.length; s++) {
+            let skillLabel = state.jobs[j].tasks[t].skills[s].label;
+            let topSkill = {
+              label: skillLabel,
+              rating: 1
+            };
+            if (skillLabels.indexOf(skillLabel) === -1) {
+              skillLabels.push(skillLabel);
+              skillList.push(topSkill);
+            } else {
+              skillList[skillLabels.indexOf(skillLabel)].rating += 1
+            }
+          }
+        }
+      }
+
+      skillList.sort(function (a, b) {
+        return b.rating - a.rating
+      })
+
+      return skillList;
     }
   },
   mutations: {

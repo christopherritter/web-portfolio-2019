@@ -13,7 +13,15 @@
         <timeline></timeline>
       </div>
       <div class="col-sm-4">
-        <PackChart :tweetData=loadData />
+        <div v-for="skill in topSkills" v-bind:key="skill.label">
+          <h5>{{ skill.label }}</h5>
+          <b-progress
+            :value="value"
+            :max="max"
+            class="mb-3"
+          ></b-progress>
+        </div>
+        <!--<PackChart :tweetData=loadData />-->
       </div>
     </div>
 
@@ -22,17 +30,24 @@
 
 <script>
 import Timeline from "@/components/Timeline.vue";
-import PackChart from "@/components/Chart.vue";
+import store from "@/store";
+/*import PackChart from "@/components/Chart.vue";
 
-import * as d3 from "d3";
+import * as d3 from "d3";*/
 
 export default {
   name: "about",
+  store,
   components: {
-    Timeline,
-    PackChart
+    Timeline
+    /*PackChart*/
   },
-  data: function() {
+  computed: {
+    topSkills() {
+      return store.getters.topSkills.slice(0, 6);
+    }
+  },
+  /*data: function() {
     return {
       loadData: []
     };
@@ -45,7 +60,7 @@ export default {
       let data = await d3.json("./tweets.json");
       this.loadData = data;
     }
-  }
+  }*/
 };
 </script>
 
