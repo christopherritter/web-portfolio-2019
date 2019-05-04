@@ -33,8 +33,8 @@
         </div>
 
         <div>
-          <h5 class="tl-job">{{ job.title }}</h5>
-          <h6 class="tl-company">{{ job.company }}</h6>
+          <h6 class="tl-job">{{ job.title }}</h6>
+          <h5 class="tl-company">{{ job.company }}</h5>
         </div>
       </div>
 
@@ -110,9 +110,24 @@
               >
                 <img
                   :src="delis.img"
-                  @click="showModal = true"
+                  @click="showDeli"
                 >
                 <p v-if="delis.description">{{ delis.description }}</p>
+
+                <b-modal
+                  id="modal-1"
+                  size="xl"
+                  hide-footer
+                  centered
+                  :title="delis.title"
+                >
+                  <p class="m-2">
+                    <img
+                      :src="delis.img"
+                      @click="showDeli"
+                    ></p>
+                    <p v-if="delis.description">{{ delis.description }}</p>
+                </b-modal>
 
               </div>
             </div>
@@ -217,6 +232,15 @@ export default {
           task.showTask = true;
         }
       }
+    },
+    showDeli() {
+      this.$root.$emit("bv::show::modal", "modal-1", "#btnShow");
+    },
+    hideDeli() {
+      this.$root.$emit("bv::hide::modal", "modal-1", "#btnShow");
+    },
+    toggleDeli() {
+      this.$root.$emit("bv::toggle::modal", "modal-1", "#btnToggle");
     }
   }
 };
@@ -234,21 +258,25 @@ export default {
   font-weight: 600;
   line-height: 1rem;
   text-transform: uppercase;
-  padding: 10pt 5px;
+  padding: 25pt 10pt;
   text-align: center;
 }
 
-h5.tl-job {
-  font-size: 1.25rem;
-  line-height: 1.25rem;
-  font-weight: 600;
+h6.tl-job {
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1rem;
+  font-weight: 400;
+  margin-top: 12px;
+  margin-bottom: 3px;
+  color: #bcbcbc;
 }
 
-h6.tl-company {
-  font-size: 1.75rem;
+h5.tl-company {
+  font-size: 2rem;
   line-height: 2rem;
   font-weight: 400;
-  margin-bottom: 15px;
+  margin-bottom: 0;
 }
 
 .tl-desc-text {
@@ -382,6 +410,11 @@ h6.tl-company {
 .modal-wrapper {
   display: table-cell;
   vertical-align: middle;
+}
+
+.modal-dialog .modal-header {
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
 .modal-dialog .modal-content {
