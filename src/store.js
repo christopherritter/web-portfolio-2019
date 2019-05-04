@@ -538,26 +538,6 @@ export default new Vuex.Store({
     ]
   },
   getters: {
-    uniqueSkills(state) {
-      let j;
-      let t;
-      let s;
-      let skills = [];
-      let skillObjs = [];
-      for (j = 0; j < state.jobs.length; j++) {
-        for (t = 0; t < state.jobs[j].tasks.length; t++) {
-          for (s = 0; s < state.jobs[j].tasks[t].skills.length; s++) {
-            let skill = state.jobs[j].tasks[t].skills[s].label;
-            let skillObj = state.jobs[j].tasks[t].skills[s];
-            if (skills.indexOf(skill) === -1) {
-              skills.push(skill);
-              skillObjs.push(skillObj);
-            }
-          }
-        }
-      }
-      return skillObjs;
-    },
     topSkills(state) {
       let skillLabels = [];
       let skillList = [];
@@ -567,12 +547,15 @@ export default new Vuex.Store({
             let skillLabel = state.jobs[j].tasks[t].skills[s].label;
             let topSkill = {
               label: skillLabel,
+              isActive: false,
               rating: 1
             };
             if (skillLabels.indexOf(skillLabel) === -1) {
+              topSkill.isActive = state.jobs[j].tasks[t].skills[s].isActive;
               skillLabels.push(skillLabel);
               skillList.push(topSkill);
             } else {
+              skillList[skillLabels.indexOf(skillLabel)].isActive = state.jobs[j].tasks[t].skills[s].isActive;
               skillList[skillLabels.indexOf(skillLabel)].rating += 1
             }
           }

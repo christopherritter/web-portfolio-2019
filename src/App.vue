@@ -49,7 +49,7 @@
             </li>
             <li
               class="nav-item"
-              v-for="skill in uniqueSkills"
+              v-for="skill in topSkills"
               v-bind:key="skill.id"
             >
               <button
@@ -93,11 +93,11 @@ export default {
     };
   },
   computed: {
-    uniqueSkills() {
+    topSkills() {
       if (this.showAllSkills) {
-        return store.getters.uniqueSkills;
+        return store.getters.topSkills;
       } else {
-        return store.getters.uniqueSkills.slice(0, 4);
+        return store.getters.topSkills.slice(0, 4);
       }
     }
   },

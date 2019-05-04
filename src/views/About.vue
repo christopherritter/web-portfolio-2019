@@ -47,8 +47,7 @@ export default {
   },
   data() {
     return {
-      max: 50,
-      value: 33.333333333
+      max: 20
     };
   },
   computed: {
