@@ -63,7 +63,10 @@
           <div class="tl-desc-text">
             {{ task.description }}
           </div>
-          <div class="ml-auto" v-if="task.deliverables">
+          <div
+            class="ml-auto"
+            v-if="task.deliverables"
+          >
             <button
               role="button"
               class="btn btn-view"
@@ -97,9 +100,20 @@
             <div class="bubble-line"></div>
           </div>
           <div class="tl-task-deliverable-desc">
-            <div class="jumbotron" v-if="task.deliverables">
-              <div v-for="delis in task.deliverables" v-bind:key="delis.id">
-                <img :src="delis.img">
+            <div
+              class="jumbotron"
+              v-if="task.deliverables"
+            >
+              <div
+                v-for="delis in task.deliverables"
+                v-bind:key="delis.id"
+              >
+                <img
+                  :src="delis.img"
+                  @click="showModal = true"
+                >
+                <p v-if="delis.description">{{ delis.description }}</p>
+
               </div>
             </div>
           </div>
@@ -139,6 +153,11 @@ export default {
   name: "timeline",
   store,
   props: ["tasks", "deliverables"],
+  data() {
+    return {
+      showModal: false
+    };
+  },
   created: function() {
     if (this.tasks === "show") {
       store.dispatch("showTasks");
@@ -342,5 +361,30 @@ h6.tl-company {
 
 .tl-task-deliverable-desc img {
   width: 100%;
+}
+
+.tl-task-deliverable-desc p {
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+.modal-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: table;
+  transition: opacity 0.3s ease;
+}
+
+.modal-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.modal-dialog .modal-content {
+  background-color: #3e3e3e;
 }
 </style>

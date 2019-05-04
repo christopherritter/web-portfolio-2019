@@ -107,10 +107,10 @@ export default new Vuex.Store({
             deliverables: [
               {
                 id: 0,
-                title: '',
-                subtitle: '',
+                title: 'CX 10 Home Screen',
+                subtitle: 'The home screen for CX 10',
                 img: 'img/CX10-Home.png',
-                description: ''
+                description: 'The home screen for CX 10 provides users with a searchable directory of their available applications. When the user launches an application it appears on a recently viewed list next to the directory.'
               }
             ],
             showTask: true,

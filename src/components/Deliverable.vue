@@ -1,25 +1,103 @@
 <template>
-  <div class="deliverable">
-    <svg
-      style="width:24px;height:24px"
-      viewBox="0 0 24 24"
-    >
-      <path
-        fill="#000000"
-        d="M18,21L15,18L18,15V17H22V19H18V21M13,18C13,18.71 13.15,19.39 13.42,20H2V17C2,14.79 5.58,13 10,13C11,13 11.96,13.09 12.85,13.26C13.68,13.42 14.44,13.64 15.11,13.92C13.83,14.83 13,16.32 13,18M4,17V18H11C11,16.96 11.23,15.97 11.64,15.08L10,15C6.69,15 4,15.9 4,17M10,4A4,4 0 0,1 14,8A4,4 0 0,1 10,12A4,4 0 0,1 6,8A4,4 0 0,1 10,4M10,6A2,2 0 0,0 8,8A2,2 0 0,0 10,10A2,2 0 0,0 12,8A2,2 0 0,0 10,6Z"
-      />
-    </svg>
+  <div
+    class="modal fade"
+    tabindex="-1"
+    role="dialog"
+    aria-hidden="true"
+    v-show="this.show"
+    @click="this.close">
+    <div class="modal-dialog" role="document" @click.stop>
+      <div class="modal-content">
+        <slot></slot>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-export default {
-  name: "deliverable"
-};
-</script>
+import Modal from 'bootstrap/js/src/modal';
 
-<style>
-.deliverable p {
-  background-color: #707070;
+export default {
+  name: 'deliverable',
+
+  props: {
+    show: {
+      type: Boolean,
+      default: false
+    },
+    onOpen: {
+      type: Function,
+      default: null
+    },
+    onClose: {
+      type: Function,
+      default: null
+    }
+  },
+
+  mounted() {
+    this.modalInstance = new Modal(this.$el);
+
+    // If the esc button is typed, close modal.
+    document.addEventListener('keydown', this.handleKeydown);
+  },
+
+  data() {
+    return {
+      modalInstance: null,
+    };
+  },
+
+  watch: {
+    // Watch for a change in show, so we can call for open or close.
+    show(value) {
+      if (value) {
+        this.open()
+      } else if ( ! value) {
+        this.close()
+      }
+    }
+  },
+
+  beforeDestroy() {
+    document.removeEventListener('keydown', this.handleKeydown);
+
+    if (this.isDef(this.modalInstance)) {
+      this.modalInstance.dispose();
+      this.modalInstance = null;
+    }
+  },
+
+  methods: {
+    handleKeydown(e) {
+      if (this.show && e.keyCode === 27) {
+        this.close();
+      }
+    },
+
+    close() {
+      if (this.isDef(this.modalInstance)) {
+        this.modalInstance.hide();
+      }
+
+      // Next, call a defined callback.
+      if (this.onClose !== null) {
+        this.onClose()
+      }
+    },
+
+    open() {
+      // First, call a defined callback.
+      if (this.isDef(this.onOpen)) {
+        this.onOpen()
+      }
+
+      this.modalInstance.show();
+    },
+
+    isDef(obj) {
+      return typeof obj !== undefined && obj !== null;
+    },
+  }
 }
-</style>
+</script>
