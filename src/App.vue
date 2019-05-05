@@ -224,7 +224,7 @@ h1 .sub-header {
   border-left: 0.5rem solid #e64543;
 }
 .sidebar-nav .nav-about .router-link-exact-active {
-  border-left: 0.5rem solid #bcbcbc;
+  border-left: 0.5rem solid #4cb7db;
 }
 .sidebar-nav .nav-experience .router-link-exact-active {
   border-left: 0.5rem solid #f1a430;

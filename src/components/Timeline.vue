@@ -323,7 +323,7 @@ h5.tl-company {
 }
 
 .tl-line-job .bubble-line-tall {
-  height: 50px;
+  height: 1rem;
 }
 
 .tl-job:last-child .tl-task:last-child .bubble-line {

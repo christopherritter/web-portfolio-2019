@@ -3,7 +3,7 @@
 
     <div class="row">
       <div class="jumbotron">
-        <h1 class="display-4">The Dawn of a UX Engineer</h1>
+        <h1 class="display-4">The Path of a UX Engineer</h1>
         <p class="lead">Many moons ago, I fancied myself a Web Designer until I was swept away by the advent of User Experience Design.</p>
 
         <p>In the decade that followed, I practiced the art of wireframing and annotating, diagramming user workflows, and gathering user feedback on design concepts. As the industry continues to evolve with
@@ -18,16 +18,16 @@
       <div class="col-md-12 col-lg-8">
         <timeline></timeline>
       </div>
-      <div class="col-md-12 col-lg-4 pt-2 pb-5">
+      <div class="col-md-12 col-lg-4 pt-3 pb-5">
         <div
           v-for="skill in topSkills"
           v-bind:key="skill.label"
+          class="mb-4"
         >
           <h5>{{ skill.label }}</h5>
           <b-progress
             :value="skill.rating"
             :max="max"
-            class="mb-4"
           ></b-progress>
         </div>
         <!--<PackChart :tweetData=loadData />-->
@@ -58,7 +58,7 @@ export default {
   },
   computed: {
     topSkills() {
-      return store.getters.topSkills.slice(0, 8);
+      return store.getters.topSkills.slice(0, 6);
     }
   }
   /*data: function() {
@@ -85,8 +85,13 @@ h1 {
   padding-bottom: 1rem;
 }
 .jumbotron {
-  padding: 4rem 2rem 2rem 2rem;
+  padding: 4rem 3rem 2rem 3rem;
   background-color: #3d3d3d;
+  background-image: url('../assets/map-marker-path.svg');
+  background-position: 95% 0%;
+  background-repeat: no-repeat;
+  background-size: 70% auto;
+  background-blend-mode: luminosity;
 }
 p {
   color: #bcbcbc;
