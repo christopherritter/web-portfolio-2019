@@ -16,17 +16,17 @@ export default new Router({
     {
       path: '/experience',
       name: 'experience',
-      component: () => import(/* webpackChunkName: "about" */ './views/Experience.vue')
+      component: () => import(/* webpackChunkName: "experience" */ './views/Experience.vue')
     },
     {
       path: '/portfolio',
       name: 'portfolio',
-      component: () => import(/* webpackChunkName: "about" */ './views/Portfolio.vue')
+      component: () => import(/* webpackChunkName: "portfolio" */ './views/Portfolio.vue')
     },
     {
       path: '/contact',
       name: 'contact',
-      component: () => import(/* webpackChunkName: "about" */ './views/Contact.vue')
+      component: () => import(/* webpackChunkName: "contact" */ './views/Contact.vue')
     }
   ]
 })
