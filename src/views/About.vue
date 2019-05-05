@@ -9,7 +9,7 @@
         <p>In the decade that followed, I practiced the art of wireframing and annotating, diagramming user workflows, and gathering user feedback on design concepts. As the industry continues to evolve with
           the aid of Design Systems, so too has my knowledge of the Front End. Now I have returned to my HTML/CSS/JS roots with the skillset of a UX Engineer.</p>
 
-        <p>This interactive resume allows you to focus on my professional skills that interest you most. Anywhere you see a <span class="bold bold-skill">Skill</span> &mdash; below the menu on the side, or 
+        <p class="subtext">This interactive resume allows you to focus on my professional skills that interest you most. Anywhere you see a <span class="bold bold-skill">Skill</span> &mdash; below the menu on the side, or 
         on the timeline &mdash; simply click on the skill to show or hide them on my timeline.</p>
       </div>
     </div>
@@ -87,11 +87,10 @@ h1 {
 .jumbotron {
   padding: 4rem 3rem 2rem 3rem;
   background-color: #3d3d3d;
-  background-image: url('../assets/map-marker-path.svg');
-  background-position: 95% 0%;
+  background-image: url('../assets/moon-vector.svg');
+  background-position: 100% 100%;
   background-repeat: no-repeat;
-  background-size: 70% auto;
-  background-blend-mode: luminosity;
+  background-size: 100%;
 }
 p {
   color: #bcbcbc;
@@ -102,5 +101,9 @@ p.lead {
 p .bold-skill {
   color: #ffffff;
   font-weight: 600;
+}
+p.subtext {
+  font-style: italic;
+  font-size: 0.9rem;
 }
 </style>
