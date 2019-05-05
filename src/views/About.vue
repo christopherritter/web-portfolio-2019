@@ -3,16 +3,22 @@
 
     <div class="row">
       <div class="jumbotron">
-        <h1 class="display-4">Thinking Systemically about Design</h1>
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et commodo nisi. Aliquam erat volutpat. Nullam vel nisi quam. Ut eu porta nisl, nec tempus lacus. Phasellus placerat ut lacus sit amet laoreet. Vestibulum lacus mi, pharetra vel metus eget, mollis tempus nisl. Nulla eleifend dignissim porta. Fusce libero leo, lobortis ac erat a, placerat laoreet nibh. </p>
+        <h1 class="display-4">The Dawn of a UX Engineer</h1>
+        <p class="lead">Many moons ago, I fancied myself a Web Designer until I was swept away by the advent of User Experience Design.</p>
+
+        <p>In the decade that followed, I practiced the art of wireframing and annotating, diagramming user workflows, and gathering user feedback on design concepts. As the industry continues to evolve with
+          the aid of Design Systems, so too has my knowledge of the Front End. Now I have returned to my HTML/CSS/JS roots with the skillset of a UX Engineer.</p>
+
+        <p>This interactive resume allows you to focus on my professional skills that interest you most. Anywhere you see a <span class="bold bold-skill">Skill</span> &mdash; below the menu on the side, or 
+        on the timeline &mdash; simply click on the skill to show or hide them on my timeline.</p>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-sm-8">
+      <div class="col-md-12 col-lg-8">
         <timeline></timeline>
       </div>
-      <div class="col-sm-4">
+      <div class="col-md-12 col-lg-4 pt-2 pb-5">
         <div
           v-for="skill in topSkills"
           v-bind:key="skill.label"
@@ -52,7 +58,7 @@ export default {
   },
   computed: {
     topSkills() {
-      return store.getters.topSkills.slice(0, 6);
+      return store.getters.topSkills.slice(0, 8);
     }
   }
   /*data: function() {
@@ -79,9 +85,17 @@ h1 {
   padding-bottom: 1rem;
 }
 .jumbotron {
+  padding: 4rem 2rem 2rem 2rem;
   background-color: #3d3d3d;
 }
 p {
   color: #bcbcbc;
+}
+p.lead {
+  color: #ffffff;
+}
+p .bold-skill {
+  color: #ffffff;
+  font-weight: 600;
 }
 </style>

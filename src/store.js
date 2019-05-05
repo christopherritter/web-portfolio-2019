@@ -29,6 +29,14 @@ export default new Vuex.Store({
               {
                 label: "ASCX",
                 isActive: false
+              },
+              {
+                label: "Prototyping",
+                isActive: false
+              },
+              {
+                label: "XD",
+                isActive: false
               }
             ],
             deliverables: [{
@@ -59,6 +67,26 @@ export default new Vuex.Store({
                 isActive: true
               },
               {
+                label: "Prototyping",
+                isActive: false
+              },
+              {
+                label: "XD",
+                isActive: false
+              },
+              {
+                label: "Research",
+                isActive: false
+              },
+              {
+                label: "Analysis",
+                isActive: false
+              },
+              {
+                label: "Reporting",
+                isActive: false
+              },
+              {
                 label: "QT",
                 isActive: false
               },
@@ -78,25 +106,6 @@ export default new Vuex.Store({
           },
           {
             id: 2,
-            description: "Redesigned UI of two flagship products using Adobe XD for concept design and feedback.",
-            skills: [{
-                label: "UX",
-                isActive: true
-              },
-              {
-                label: "UI",
-                isActive: true
-              },
-              {
-                label: "XD",
-                isActive: false
-              }
-            ],
-            showTask: true,
-            showDeliverable: false
-          },
-          {
-            id: 3,
             description: "Developed prototypes using SmartGWT to demonstrate interactions and responsive layouts.",
             skills: [{
                 label: "UX",
@@ -119,7 +128,7 @@ export default new Vuex.Store({
             showDeliverable: false
           },
           {
-            id: 4,
+            id: 3,
             description: "Provided design assistance to local, remote, and offshore development teams by delivering wireframes and various UI elements (fonts, icons, colors) within an Agile environment.",
             skills: [{
                 label: "UX",

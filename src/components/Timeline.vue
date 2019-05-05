@@ -1,5 +1,5 @@
 <template>
-  <div class="timeline">
+  <div class="timeline pb-5">
     <div
       class="tl-job"
       v-for="job in this.$store.state.jobs"
@@ -156,12 +156,12 @@ export default {
   components: {
     Deliverable
   },
-  props: ["tasks", "deliverables"],
   data() {
     return {
-      showModal: false
+      fullyCollapsed: false
     };
   },
+  props: ["tasks", "deliverables"],
   created: function() {
     if (this.tasks === "show") {
       store.dispatch("showTasks");
@@ -172,28 +172,6 @@ export default {
       store.dispatch("showDelis");
     } else {
       store.dispatch("hideDelis");
-    }
-  },
-  computed: {
-    relevantSkills: function() {
-      let j;
-      let t;
-      let s;
-      let relevantList = [];
-      for (j = 0; j < store.state.jobs.length; j++) {
-        for (t = 0; t < store.state.jobs[j].tasks.length; t++) {
-          for (s = 0; s < store.state.jobs[j].tasks[t].skills.length; s++) {
-            if (store.state.jobs[j].tasks[t].skills[s].isActive) {
-              relevantList.push(store.state.jobs[j].tasks[t].skills[s]);
-            }
-          }
-        }
-      }
-      if (relevantList === undefined || relevantList.length == 0) {
-        return false;
-      } else {
-        return true;
-      }
     }
   },
   methods: {
@@ -348,11 +326,11 @@ h5.tl-company {
   height: 50px;
 }
 
-.tl-job:last-child .btn-bubble {
-  margin-bottom: 60px;
+.tl-job:last-child .tl-task:last-child .bubble-line {
+  display: none;
 }
 
-.tl-job:last-child .bubble-line {
+.tl-job:last-child .tl-header .bubble-line-tall {
   display: none;
 }
 
