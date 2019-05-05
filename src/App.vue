@@ -12,6 +12,7 @@
           <a
             class="btn btn-contact float-right"
             href="https://www.pinterest.com/chrisritter/"
+            target="_blank"
           ><svg
               style="width:48px;height:48px"
               viewBox="0 0 24 24"
@@ -26,6 +27,7 @@
             class="btn btn-contact float-right"
             role="button"
             href="https://www.linkedin.com/in/christopherritter"
+            target="_blank"
           >
             <svg
               style="width:48px;height:48px"
