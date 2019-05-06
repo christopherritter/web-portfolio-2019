@@ -9,7 +9,7 @@
       <!-- Job -->
 
       <div class="tl-header d-flex">
-        <div class="tl-date">
+        <div class="tl-date tl-date-left">
           <div
             class="tl-date-flag"
             v-if="job.startDate == job.endDate"
@@ -33,6 +33,16 @@
         </div>
 
         <div>
+          <div class="tl-date tl-date-inline">
+            <div
+              class="tl-date-flag"
+              v-if="job.startDate == job.endDate"
+            >{{ job.endDate }}</div>
+            <div
+              class="tl-date-flag"
+              v-else
+            >{{ job.startDate }} &ndash; {{ job.endDate }}</div>
+          </div>
           <h6 class="tl-job">{{ job.title }}</h6>
           <h5 class="tl-company">{{ job.company }}</h5>
         </div>
@@ -205,19 +215,17 @@ export default {
 </script>
 
 <style>
-.tl-date {
-  width: 135px;
-  padding-right: 10px;
+.tl-date-left {
+  display: none;
 }
-
 .tl-date-flag {
   color: #fff;
   font-size: 0.9rem;
   font-weight: 600;
   line-height: 1rem;
   text-transform: uppercase;
-  padding: 25pt 10pt;
-  text-align: center;
+  padding: 0;
+  text-align: left;
 }
 
 h6.tl-job {
@@ -225,7 +233,7 @@ h6.tl-job {
   font-size: 1rem;
   line-height: 1rem;
   font-weight: 400;
-  margin-top: 12px;
+  margin-top: 0.3rem;
   margin-bottom: 3px;
   color: #bcbcbc;
 }
@@ -235,6 +243,45 @@ h5.tl-company {
   line-height: 2rem;
   font-weight: 400;
   margin-bottom: 0;
+}
+
+@media (min-width: 576px) {
+  .tl-date {
+    width: 135px;
+    padding-right: 10px;
+  }
+  .tl-date-left {
+    display: initial;
+  }
+  .tl-date-inline {
+    display: none;
+  }
+  .tl-date-flag {
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1rem;
+    text-transform: uppercase;
+    padding: 25pt 10pt;
+    text-align: center;
+  }
+
+  h6.tl-job {
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1rem;
+    font-weight: 400;
+    margin-top: 12px;
+    margin-bottom: 3px;
+    color: #bcbcbc;
+  }
+
+  h5.tl-company {
+    font-size: 2rem;
+    line-height: 2rem;
+    font-weight: 400;
+    margin-bottom: 0;
+  }
 }
 
 .tl-desc-text {
@@ -250,19 +297,13 @@ h5.tl-company {
   margin-right: 50px;
 }
 
-.tl-line-job button,
-.tl-line-desc button {
-  background-color: #f1a430;
-  border: 5px solid #3e3e3e;
-}
-
 .tl-line-desc,
 .tl-line-delis {
-  margin-left: 150px;
+  margin-left: 15px;
 }
 
 .tl-line-skills {
-  margin-left: 172px;
+  margin-left: 38px;
   margin-right: 67px;
 }
 
@@ -270,12 +311,43 @@ h5.tl-company {
   margin-right: 50px;
 }
 
+.tl-line-delis .bubble-line {
+  height: 100%;
+}
+
+@media (min-width: 576px) {
+  .tl-line-desc {
+    margin-right: 50px;
+  }
+
+  .tl-line-desc,
+  .tl-line-delis {
+    margin-left: 150px;
+  }
+
+  .tl-line-skills {
+    margin-left: 172px;
+    margin-right: 67px;
+  }
+
+  .tl-line-delis {
+    margin-right: 50px;
+  }
+
+  .tl-line-delis .bubble-line {
+    height: 100%;
+  }
+}
+
+.tl-line-job button,
+.tl-line-desc button {
+  background-color: #f1a430;
+  border: 5px solid #3e3e3e;
+}
+
 .tl-line-delis button {
   background-color: #84a86b;
   border: 5px solid #3e3e3e;
-}
-.tl-line-delis .bubble-line {
-  height: 100%;
 }
 
 .btn-bubble {
@@ -299,7 +371,7 @@ h5.tl-company {
 .btn-skill {
   font-size: 0.75rem;
   padding: 0 4px;
-  margin: 0 5px;
+  margin: 0.1rem;
   color: #bcbcbc;
   border: 2px solid #3e3e3e;
   text-transform: uppercase;

@@ -6,9 +6,9 @@
         class="row"
       >
         <div class="col-sm-9">
-          <h1 class="header">Christopher Ritter <br class="d-none d-md-block d-lg-none" /><span class="sub-header">UX&bsol;UI Designer</span></h1>
+          <h1 class="header">Christopher Ritter <br class="d-none d-block d-xl-none" /><span class="sub-header">UX&bsol;UI Designer</span></h1>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-3 pt-1 pb-4 pr-0">
           <a
             class="btn btn-contact float-right"
             href="https://www.pinterest.com/chrisritter/"
@@ -130,7 +130,23 @@
         </div>
         <router-view class="col-lg-12 col-xl-9" />
       </div>
+      <footer>
+        <div class="row">
+          <div class="col-xl-9 offset-xl-3">
+            <p>&copy; 2019 Christopher Ritter. Built with <a
+                target="_blank"
+                href="https://vuejs.org/"
+              >VueJS.</a> Available on <a target="_blank" href="https://github.com/christopherritter/web-portfolio-2019">GitHub</a>. 
+            </p>
+            <p>Icons from <a
+                target="_blank"
+                href="https://materialdesignicons.com/"
+              >Material Design Icons</a>. Vector graphics by <a target="_blank" href="https://www.vecteezy.com/">Vecteezy</a>.</p>
+          </div>
+        </div>
+      </footer>
     </div>
+
   </div>
 </template>
 
@@ -196,6 +212,7 @@ h1.header {
   font-size: 3.5rem;
   font-weight: 600;
   padding-bottom: 3rem;
+  line-height: 1;
 }
 h1 .sub-header {
   font-family: "Montserrat", sans-serif;
@@ -270,6 +287,14 @@ h1 .sub-header {
   background-color: transparent;
   border: none;
   padding: 0;
-  margin: 1.1rem 0.25rem;
+  margin: 0.25rem;
+}
+footer {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+footer p {
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
 }
 </style>
