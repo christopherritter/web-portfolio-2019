@@ -10,7 +10,7 @@
           the aid of Design Systems, so too has my knowledge of the Front End. Now I have returned to my HTML/CSS/JS roots with the skillset of a UX Engineer.</p>
 
         <p class="subtext">This interactive resume allows you to focus on my professional skills that interest you most. Anywhere you see a <span class="bold bold-skill">Skill</span> &mdash; below the menu on the side, or 
-        on the timeline &mdash; simply click on the skill to show or hide them on my timeline.</p>
+        on the timeline &mdash; simply click on the skill to highlight them on my timeline.</p>
       </div>
     </div>
 

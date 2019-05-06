@@ -33,7 +33,7 @@
         </div>
 
         <div>
-          <div class="tl-date tl-date-inline">
+          <div class="tl-date tl-date-inline mt-1">
             <div
               class="tl-date-flag"
               v-if="job.startDate == job.endDate"
@@ -60,7 +60,7 @@
 
         <div
           class="tl-desc d-flex"
-          v-if="task.showTask === true && isRelevant(task)"
+          v-if="task.showTask === true"
         >
           <div class="tl-line-desc">
             <button
@@ -99,7 +99,7 @@
 
         <div
           class="tl-delis d-flex"
-          v-if="task.showDeliverable === true && isRelevant(task) && task.deliverables"
+          v-if="task.showDeliverable === true && task.deliverables"
         >
           <div class="tl-line-delis">
             <button
@@ -133,7 +133,7 @@
 
         <div
           class="tl-skills d-flex"
-          v-if="task.showDeliverable === true && task.deliverables  || task.showTask === true && isRelevant(task)"
+          v-if="task.showDeliverable === true && task.deliverables  || task.showTask === true"
         >
           <div class="tl-line-skills">
             <div class="bubble-line"></div>
@@ -242,7 +242,7 @@ h5.tl-company {
   font-size: 2rem;
   line-height: 2rem;
   font-weight: 400;
-  margin-bottom: 0;
+  margin-bottom: 2rem;
 }
 
 @media (min-width: 576px) {
@@ -266,21 +266,8 @@ h5.tl-company {
     text-align: center;
   }
 
-  h6.tl-job {
-    font-family: inherit;
-    font-size: 1rem;
-    line-height: 1rem;
-    font-weight: 400;
-    margin-top: 12px;
-    margin-bottom: 3px;
-    color: #bcbcbc;
-  }
-
-  h5.tl-company {
-    font-size: 2rem;
-    line-height: 2rem;
-    font-weight: 400;
-    margin-bottom: 0;
+  h6.tl-job { 
+    margin-top: 1rem;
   }
 }
 
@@ -395,7 +382,7 @@ h5.tl-company {
 }
 
 .tl-line-job .bubble-line-tall {
-  height: 1rem;
+  /*height: 1rem;*/
 }
 
 .tl-job:last-child .tl-task:last-child .bubble-line {
