@@ -281,12 +281,9 @@ h5.tl-company {
 }
 
 .tl-line-desc {
-  margin-right: 50px;
-}
-
-.tl-line-desc,
-.tl-line-delis {
   margin-left: 15px;
+  margin-right: 50px;
+  
 }
 
 .tl-line-skills {
@@ -295,7 +292,9 @@ h5.tl-company {
 }
 
 .tl-line-delis {
-  margin-right: 50px;
+  margin-left: 20px;
+  margin-right: 40px;
+  
 }
 
 .tl-line-delis .bubble-line {
@@ -304,25 +303,16 @@ h5.tl-company {
 
 @media (min-width: 576px) {
   .tl-line-desc {
-    margin-right: 50px;
-  }
-
-  .tl-line-desc,
-  .tl-line-delis {
     margin-left: 150px;
+    
   }
 
   .tl-line-skills {
     margin-left: 172px;
-    margin-right: 67px;
   }
 
   .tl-line-delis {
-    margin-right: 50px;
-  }
-
-  .tl-line-delis .bubble-line {
-    height: 100%;
+    margin-left: 155px;
   }
 }
 
@@ -333,6 +323,8 @@ h5.tl-company {
 }
 
 .tl-line-delis button {
+  width: 40px;
+  height: 40px;
   background-color: #84a86b;
   border: 5px solid #3e3e3e;
 }

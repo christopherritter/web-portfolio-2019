@@ -7,10 +7,10 @@
         <p class="lead">Many moons ago, I fancied myself a Web Designer until I was swept away by the advent of User Experience Design.</p>
 
         <p>In the decade that followed, I practiced the art of wireframing and annotating, diagramming user workflows, and gathering user feedback on design concepts. As the industry continues to evolve with
-          the aid of Design Systems, so too has my knowledge of the Front End. Now I have returned to my HTML/CSS/JS roots with the skillset of a UX Engineer.</p>
+          the aid of Design Systems, so too has my knowledge of front-end frameworks. Now I have returned to my HTML/CSS/JS roots with the skillset of a UX Engineer.</p>
 
-        <p class="subtext">This interactive resume allows you to focus on my professional skills that interest you most. Anywhere you see a <span class="bold bold-skill">Skill</span> &mdash; below the menu on the side, or 
-        on the timeline &mdash; simply click on the skill to highlight them on my timeline.</p>
+        <p class="subtext">This interactive resume allows you to focus on my professional skills that interest you most. Anywhere you see a <span class="bold bold-skill">Skill</span> &mdash; below the menu on 
+        the side, or on the timeline &mdash; simply click on the skill to highlight them on my timeline.</p>
       </div>
     </div>
 
