@@ -9,7 +9,7 @@
         <h1 class="display-4">The Path of a UX Engineer</h1>
         <p class="lead">Many moons ago, I fancied myself a Web Designer until I was swept away by the advent of User Experience Design.</p>
 
-        <p>In the decade that followed, I practiced the art of wireframing and annotating, diagramming user workflows, and gathering user feedback on design concepts. As the industry continues to evolve with
+        <p>In the decade that followed, I practiced the art of wireframing and annotating, diagramming user workflows, and gathering user feedback on design concepts. As the industry continued to evolve with
           the aid of Design Systems, so too has my knowledge of front-end frameworks. Now I have returned to my HTML/CSS/JS roots with the skillset of a UX Engineer.</p>
 
         <p class="subtext">This interactive resume allows you to focus on my professional skills that interest you most. Anywhere you see a <span class="bold bold-skill">Skill</span> &mdash; below the menu on
@@ -21,10 +21,16 @@
       id="stats"
       class="row"
     >
-      <div class="col-md-12" :class="{ 'col-lg-8': !timelineExpanded, 'col-lg-10': timelineExpanded }">
-        <timeline :expanded="timelineExpanded"></timeline>
+      <div
+        class="col-md-12"
+        :class="{ 'col-lg-8': !timelineExpanded, 'col-lg-10': timelineExpanded }"
+      >
+        <timeline v-on:expand-timeline="expandTimeline"></timeline>
       </div>
-      <div class="col-md-12 pt-3 pb-5" :class="{ 'col-lg-4': !timelineExpanded, 'col-lg-2': timelineExpanded }">
+      <div
+        class="col-md-12 pt-3 pb-5"
+        :class="{ 'col-lg-4': !timelineExpanded, 'col-lg-2': timelineExpanded }"
+      >
         <div
           id="skills"
           v-for="skill in topSkills"
@@ -37,7 +43,6 @@
             :max="max"
           ></b-progress>
         </div>
-        <!--<PackChart :tweetData=loadData />-->
       </div>
     </div>
 
@@ -47,16 +52,11 @@
 <script>
 import Timeline from "@/components/Timeline.vue";
 import store from "@/store";
-/*import PackChart from "@/components/Chart.vue";
-
-import * as d3 from "d3";*/
-
 export default {
   name: "resume",
   store,
   components: {
     Timeline
-    /*PackChart*/
   },
   data() {
     return {
@@ -68,21 +68,26 @@ export default {
     topSkills() {
       return store.getters.topSkills.slice(0, 6);
     }
-  }
-  /*data: function() {
-    return {
-      loadData: []
-    };
-  },
-  mounted() {
-    this.fetchData();
   },
   methods: {
-    async fetchData() {
-      let data = await d3.json("./tweets.json");
-      this.loadData = data;
+    expandTimeline: function() {
+      let jobs = store.state.jobs;
+      let visibleTasks = 0;
+      for (let j = 0; j < jobs.length; j++) {
+        let tasks = jobs[j].tasks;
+        for (let t = 0; t < tasks.length; t++) {
+          if (tasks[t].showTask == true) {
+            visibleTasks++;
+          } 
+        }
+      }
+      if (visibleTasks > 0) {
+        this.timelineExpanded = true;
+      } else {
+        this.timelineExpanded = false;
+      }
     }
-  }*/
+  }
 };
 </script>
 

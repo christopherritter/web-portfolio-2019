@@ -183,9 +183,8 @@ export default {
   },
   methods: {
     isRelevant: function(task) {
-      let s;
       let relevantList = [];
-      for (s = 0; s < task.skills.length; s++) {
+      for (let s = 0; s < task.skills.length; s++) {
         if (task.skills[s].isActive) {
           relevantList.push(s);
         }
@@ -197,8 +196,7 @@ export default {
       }
     },
     toggleTasks: function(job) {
-      let t;
-      for (t = 0; t < store.state.jobs[job.id].tasks.length; t++) {
+      for (let t = 0; t < store.state.jobs[job.id].tasks.length; t++) {
         let task = store.state.jobs[job.id].tasks[t];
         if (task.showTask) {
           task.showTask = false;
@@ -206,6 +204,10 @@ export default {
           task.showTask = true;
         }
       }
+      this.checkExpanded();
+    },
+    checkExpanded: function() {
+      this.$emit('expand-timeline');
     }
   }
 };
