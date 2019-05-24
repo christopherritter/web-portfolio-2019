@@ -9,7 +9,7 @@
       class="row"
     >
       <div class="col-sm-9">
-        <h1 class="header">Christopher Ritter <br class="d-none d-block d-xl-none" /><span class="sub-header">UX&bsol;UI Designer</span></h1>
+        <h1 class="header">Christopher Ritter <br class="d-none d-block d-xl-none" /><span class="sub-header">UX\UI Designer</span></h1>
       </div>
       <div class="col-sm-3 pt-1 pb-4 pr-0">
         <a
@@ -63,10 +63,10 @@
       class="row"
     >
       <div class="col-xl-3 d-none d-xl-block">
-        <Navigator/>
+        <Navigator />
       </div>
       <div class="col-lg-12 col-xl-9">
-        <Resume/>
+        <Resume />
       </div>
     </main>
 
@@ -74,25 +74,25 @@
       id="footer"
       class="row"
     >
-      <div class="row">
-        <div class="col-xl-9 offset-xl-3">
-          <p>&copy; 2019 Christopher Ritter. Built with <a
-              target="_blank"
-              href="https://vuejs.org/"
-            >VueJS.</a> Available on <a
-              target="_blank"
-              href="https://github.com/christopherritter/web-portfolio-2019"
-            >GitHub</a>.
-          </p>
-          <p>Icons from <a
-              target="_blank"
-              href="https://materialdesignicons.com/"
-            >Material Design Icons</a>. Vector graphics by <a
-              target="_blank"
-              href="https://www.vecteezy.com/"
-            >Vecteezy</a>.</p>
-        </div>
+
+      <div class="col-xl-9 offset-xl-3">
+        <p>&copy; 2019 Christopher Ritter. Built with <a
+            target="_blank"
+            href="https://vuejs.org/"
+          >VueJS.</a> Available on <a
+            target="_blank"
+            href="https://github.com/christopherritter/web-portfolio-2019"
+          >GitHub</a>.
+        </p>
+        <p>Icons from <a
+            target="_blank"
+            href="https://materialdesignicons.com/"
+          >Material Design Icons</a>. Vector graphics by <a
+            target="_blank"
+            href="https://www.vecteezy.com/"
+          >Vecteezy</a>.</p>
       </div>
+
     </footer>
 
   </div>

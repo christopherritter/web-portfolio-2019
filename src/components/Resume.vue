@@ -4,16 +4,15 @@
     <div
       id="about"
       class="row"
-      :class="{'d-none':!$store.state.showAbout}"
     >
-      <div class="jumbotron">
-        <h1 class="display-4">The Path of a UX Engineer</h1>
-        <p class="lead">Many moons ago, I fancied myself a Web Designer until I was swept away by the advent of User Experience Design.</p>
+      <div class="jumbotron" :class="{'jumbotron-lite':!$store.state.showAbout}">
+        <h1 :class="{'d-none':!$store.state.showAbout}" class="display-4">The Path of a UX Engineer</h1>
+        <p class="lead" :class="{'d-none':!$store.state.showAbout}">Many moons ago, I fancied myself a Web Designer until I was swept away by the advent of User Experience Design.</p>
 
-        <p>In the decade that followed, I practiced the art of wireframing and annotating, diagramming user workflows, and gathering user feedback on design concepts. As the industry continued to evolve with
+        <p :class="{'d-none':!$store.state.showAbout}">In the decade that followed, I practiced the art of wireframing and annotating, diagramming user workflows, and gathering user feedback on design concepts. As the industry continued to evolve with
           the aid of Design Systems, so too has my knowledge of front-end frameworks. Now I have returned to my HTML/CSS/JS roots with the skillset of a UX Engineer.</p>
 
-        <p class="subtext">This interactive resume allows you to focus on my professional skills that interest you most. Anywhere you see a <span class="bold bold-skill">Skill</span> &mdash; below the menu on
+        <p class="subtext" :class="{'subtext-lite':!$store.state.showAbout}">This interactive resume allows you to focus on my professional skills that interest you most. Anywhere you see a <span class="bold bold-skill">Skill</span> &mdash; below the menu on
           the side, or on the timeline &mdash; simply click on the skill to highlight them on my timeline.</p>
       </div>
     </div>
@@ -105,6 +104,9 @@ h1 {
   background-repeat: no-repeat;
   background-size: 100%;
 }
+.jumbotron-lite {
+  padding: 1.5rem;
+}
 p {
   color: #bcbcbc;
 }
@@ -118,5 +120,8 @@ p .bold-skill {
 p.subtext {
   font-style: italic;
   font-size: 0.9rem;
+}
+p.subtext-lite {
+  margin-bottom: 0;
 }
 </style>
