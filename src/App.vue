@@ -63,21 +63,10 @@
       class="row"
     >
       <div class="col-xl-3 d-none d-xl-block">
-        <Navigator
-          v-bind:show-about="showAbout"
-          v-bind:show-timeline="showTimeline"
-          v-bind:show-portfolio="showPortfolio"
-          v-on:toggle-about="toggleAbout"
-          v-on:toggle-timeline="toggleTimeline"
-          v-on:toggle-portfolio="togglePortfolio"
-        />
+        <Navigator/>
       </div>
       <div class="col-lg-12 col-xl-9">
-        <Resume
-          v-bind:show-about="showAbout"
-          v-bind:show-timeline="showTimeline"
-          v-bind:show-portfolio="showPortfolio"
-        />
+        <Resume/>
       </div>
     </main>
 
@@ -120,9 +109,9 @@ export default {
   data() {
     return {
       email: "chris@christopherritter.com",
-      showAbout: true,
-      showTimeline: false,
-      showPortfolio: false
+      showAbout: store.state.showAbout,
+      showTimeline: store.state.showTimeline,
+      showPortfolio: store.state.showPortfolio
     };
   },
   components: {

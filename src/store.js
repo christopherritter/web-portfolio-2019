@@ -569,7 +569,10 @@ export default new Vuex.Store({
           }
         ]
       }
-    ]
+    ],
+    showAbout: true,
+    showTimeline: false,
+    showPortfolio: false
   },
   getters: {
     topSkills(state) {

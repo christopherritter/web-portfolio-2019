@@ -165,10 +165,12 @@ export default {
   },
   data() {
     return {
-      fullyCollapsed: false
+      fullyCollapsed: false,
+      showAbout: store.state.showAbout,
+      showTimeline: store.state.showTimeline,
+      showPortfolio: store.state.showPortfolio
     };
   },
-  props: ["tasks", "deliverables"],
   created: function() {
     if (this.tasks === "show") {
       store.dispatch("showTasks");
@@ -200,11 +202,12 @@ export default {
         let task = store.state.jobs[job.id].tasks[t];
         if (task.showTask) {
           task.showTask = false;
+          store.state.showTimeline = false;
         } else {
           task.showTask = true;
+          store.state.showTimeline = true;
         }
       }
-      this.$emit('expand-timeline');
     }
   }
 };

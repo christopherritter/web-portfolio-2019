@@ -4,7 +4,7 @@
     <div
       id="about"
       class="row"
-      :class="{'d-none':!showAbout}"
+      :class="{'d-none':!$store.state.showAbout}"
     >
       <div class="jumbotron">
         <h1 class="display-4">The Path of a UX Engineer</h1>
@@ -24,13 +24,13 @@
     >
       <div
         class="col-md-12"
-        :class="{ 'col-lg-8': !timelineExpanded, 'col-lg-10': timelineExpanded }"
+        :class="{ 'col-lg-8': !$store.state.showTimeline, 'col-lg-10': $store.state.showTimeline }"
       >
-        <timeline v-on:expand-timeline="expandTimeline"></timeline>
+        <timeline></timeline>
       </div>
       <div
         class="col-md-12 pt-3 pb-5"
-        :class="{ 'col-lg-4': !timelineExpanded, 'col-lg-2': timelineExpanded }"
+        :class="{ 'col-lg-4': !$store.state.showTimeline, 'col-lg-2': $store.state.showTimeline }"
       >
         <div
           id="skills"
@@ -59,11 +59,9 @@ export default {
   components: {
     Timeline
   },
-  props: ["show-about"],
   data() {
     return {
-      max: 20,
-      timelineExpanded: false
+      max: 20
     };
   },
   computed: {
@@ -84,9 +82,9 @@ export default {
         }
       }
       if (visibleTasks > 0) {
-        this.timelineExpanded = true;
+        store.state.showTimeline = true;
       } else {
-        this.timelineExpanded = false;
+        store.state.showTimeline = false;
       }
     }
   }

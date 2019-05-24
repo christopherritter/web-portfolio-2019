@@ -5,23 +5,23 @@
       <li class="nav-item nav-about">
         <a
           class="nav-link"
-          :class="{ 'nav-link-active': showAbout }"
-          v-on:click="$emit('toggle-about')"
+          :class="{ 'nav-link-active': $store.state.showAbout }"
+          v-on:click="toggleAbout"
           href="javascript:;"
         >About</a>
       </li>
       <li class="nav-item nav-experience">
         <a
           class="nav-link"
-          :class="{ 'nav-link-active': showTimeline || visibleExperience > 0 }"
-          v-on:click="toggleAllTasks(showTimeline)"
+          :class="{ 'nav-link-active': visibleTasks > 0 }"
+          v-on:click="toggleAllTasks"
           href="javascript:;"
         >Experience</a>
       </li>
       <li class="nav-item nav-portfolio">
         <a
           class="nav-link"
-          :class="{ 'nav-link-active': showPortfolio }"
+          :class="{ 'nav-link-active': $store.state.showPortfolio }"
           v-on:click="$emit('toggle-portfolio')"
           href="javascript:;"
         >Portfolio</a>
@@ -81,7 +81,11 @@ import store from "@/store";
 export default {
   name: "navigator",
   store,
-  props: ["show-about", "show-timeline", "show-portfolio"],
+  data() {
+    return {
+      showSkills: false
+    };
+  },
   computed: {
     topSkills() {
       if (this.showSkills) {
@@ -90,7 +94,7 @@ export default {
         return store.getters.topSkills.slice(0, 4);
       }
     },
-    visibleExperience() {
+    visibleTasks() {
       let jobs = store.state.jobs;
       let visibleTasks = 0;
       for (let j = 0; j < jobs.length; j++) {
@@ -105,14 +109,18 @@ export default {
     }
   },
   methods: {
+    toggleAbout() {
+      store.state.showAbout = !store.state.showAbout;
+    },
     toggleAllTasks() {
       let jobs = store.state.jobs;
-      if (this.visibleExperience < jobs.length) {
+      if (this.visibleTasks < jobs.length) {
         for (let j = 0; j < jobs.length; j++) {
           let tasks = jobs[j].tasks;
           for (let t = 0; t < tasks.length; t++) {
             tasks[t].showTask = true;
           }
+          store.state.showTimeline = true;
         }
       } else {
         for (let j = 0; j < jobs.length; j++) {
@@ -121,7 +129,9 @@ export default {
             tasks[t].showTask = false;
           }
         }
+        store.state.showTimeline = false;
       }
+      
     },
     toggleSkillList() {
       if (this.showSkills) {
