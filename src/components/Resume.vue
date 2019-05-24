@@ -1,7 +1,10 @@
 <template>
-  <div id="about">
+  <div id="resume">
 
-    <div class="row">
+    <div
+      id="about"
+      class="row"
+    >
       <div class="jumbotron">
         <h1 class="display-4">The Path of a UX Engineer</h1>
         <p class="lead">Many moons ago, I fancied myself a Web Designer until I was swept away by the advent of User Experience Design.</p>
@@ -9,17 +12,21 @@
         <p>In the decade that followed, I practiced the art of wireframing and annotating, diagramming user workflows, and gathering user feedback on design concepts. As the industry continues to evolve with
           the aid of Design Systems, so too has my knowledge of front-end frameworks. Now I have returned to my HTML/CSS/JS roots with the skillset of a UX Engineer.</p>
 
-        <p class="subtext">This interactive resume allows you to focus on my professional skills that interest you most. Anywhere you see a <span class="bold bold-skill">Skill</span> &mdash; below the menu on 
-        the side, or on the timeline &mdash; simply click on the skill to highlight them on my timeline.</p>
+        <p class="subtext">This interactive resume allows you to focus on my professional skills that interest you most. Anywhere you see a <span class="bold bold-skill">Skill</span> &mdash; below the menu on
+          the side, or on the timeline &mdash; simply click on the skill to highlight them on my timeline.</p>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-12 col-lg-8">
-        <timeline></timeline>
+    <div
+      id="stats"
+      class="row"
+    >
+      <div class="col-md-12" :class="{ 'col-lg-8': !timelineExpanded, 'col-lg-10': timelineExpanded }">
+        <timeline :expanded="timelineExpanded"></timeline>
       </div>
-      <div class="col-md-12 col-lg-4 pt-3 pb-5">
+      <div class="col-md-12 pt-3 pb-5" :class="{ 'col-lg-4': !timelineExpanded, 'col-lg-2': timelineExpanded }">
         <div
+          id="skills"
           v-for="skill in topSkills"
           v-bind:key="skill.label"
           class="mb-4"
@@ -45,7 +52,7 @@ import store from "@/store";
 import * as d3 from "d3";*/
 
 export default {
-  name: "about",
+  name: "resume",
   store,
   components: {
     Timeline
@@ -53,7 +60,8 @@ export default {
   },
   data() {
     return {
-      max: 20
+      max: 20,
+      timelineExpanded: false
     };
   },
   computed: {
@@ -87,7 +95,7 @@ h1 {
 .jumbotron {
   padding: 4rem 3rem 2rem 3rem;
   background-color: #3d3d3d;
-  background-image: url('../assets/moon-vector.svg');
+  background-image: url("../assets/moon-vector.svg");
   background-position: 100% 100%;
   background-repeat: no-repeat;
   background-size: 100%;

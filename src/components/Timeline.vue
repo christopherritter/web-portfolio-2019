@@ -26,10 +26,7 @@
             class="btn btn-bubble"
             v-on:click="toggleTasks(job)"
           ></button>
-          <div
-            class="bubble-line"
-            :class="{ 'bubble-line-tall' : !relevantSkills }"
-          ></div>
+          <div class="bubble-line bubble-line-tall"></div>
         </div>
 
         <div>
