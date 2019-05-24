@@ -4,6 +4,7 @@
     <div
       id="about"
       class="row"
+      :class="{'d-none':!showAbout}"
     >
       <div class="jumbotron">
         <h1 class="display-4">The Path of a UX Engineer</h1>
@@ -58,6 +59,7 @@ export default {
   components: {
     Timeline
   },
+  props: ["show-about"],
   data() {
     return {
       max: 20,

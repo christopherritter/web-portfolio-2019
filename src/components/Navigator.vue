@@ -5,29 +5,33 @@
       <li class="nav-item nav-about">
         <a
           class="nav-link"
-          to="/"
+          :class="{ 'nav-link-active': showAbout }"
+          v-on:click="$emit('toggle-about')"
+          href="javascript:;"
         >About</a>
       </li>
       <li class="nav-item nav-experience">
         <a
           class="nav-link"
-          to="/experience"
+          :class="{ 'nav-link-active': showTimeline || visibleExperience > 0 }"
+          v-on:click="toggleAllTasks(showTimeline)"
+          href="javascript:;"
         >Experience</a>
       </li>
       <li class="nav-item nav-portfolio">
         <a
           class="nav-link"
-          to="/portfolio"
+          :class="{ 'nav-link-active': showPortfolio }"
+          v-on:click="$emit('toggle-portfolio')"
+          href="javascript:;"
         >Portfolio</a>
       </li>
-      <!--
-      <li class="nav-item nav-contact">
+      <!-- <li class="nav-item nav-contact">
         <a
           class="nav-link"
-          to="/contact"
+          :class="{ 'nav-link-active': showContact }"
         >Contact</a>
-      </li>
-      -->
+      </li> -->
     </ul>
 
     <ul class="navbar-nav sidebar-nav skills-nav">
@@ -48,7 +52,7 @@
       </li>
       <li
         class="nav-item"
-        v-if="!this.showAllSkills"
+        v-if="!this.showSkills"
       >
         <button
           class="btn nav-link more-link"
@@ -77,26 +81,53 @@ import store from "@/store";
 export default {
   name: "navigator",
   store,
-  data() {
-    return {
-      showAllSkills: false
-    };
-  },
+  props: ["show-about", "show-timeline", "show-portfolio"],
   computed: {
     topSkills() {
-      if (this.showAllSkills) {
+      if (this.showSkills) {
         return store.getters.topSkills;
       } else {
         return store.getters.topSkills.slice(0, 4);
       }
+    },
+    visibleExperience() {
+      let jobs = store.state.jobs;
+      let visibleTasks = 0;
+      for (let j = 0; j < jobs.length; j++) {
+        let tasks = jobs[j].tasks;
+        for (let t = 0; t < tasks.length; t++) {
+          if (tasks[t].showTask == true) {
+            visibleTasks++;
+          }
+        }
+      }
+      return visibleTasks;
     }
   },
   methods: {
-    toggleSkillList() {
-      if (this.showAllSkills) {
-        this.showAllSkills = false;
+    toggleAllTasks() {
+      let jobs = store.state.jobs;
+      if (this.visibleExperience < jobs.length) {
+        for (let j = 0; j < jobs.length; j++) {
+          let tasks = jobs[j].tasks;
+          for (let t = 0; t < tasks.length; t++) {
+            tasks[t].showTask = true;
+          }
+        }
       } else {
-        this.showAllSkills = true;
+        for (let j = 0; j < jobs.length; j++) {
+          let tasks = jobs[j].tasks;
+          for (let t = 0; t < tasks.length; t++) {
+            tasks[t].showTask = false;
+          }
+        }
+      }
+    },
+    toggleSkillList() {
+      if (this.showSkills) {
+        this.showSkills = false;
+      } else {
+        this.showSkills = true;
       }
     }
   }
@@ -105,40 +136,24 @@ export default {
 
 <style>
 .sidebar-nav .nav-item .nav-link {
+  color: #fff;
   height: 4.5rem;
   padding: 1.5rem;
   border: none;
   border-left: 0.5rem solid #3e3e3e;
 }
-.sidebar-nav .nav-item .nav-link:hover,
-.sidebar-nav .nav-item .router-link-exact-active {
-  color: #fff;
-}
-.sidebar-nav .nav-experience .router-link-exact-active {
+.sidebar-nav .nav-experience .nav-link-active {
   border-left: 0.5rem solid #f1a430;
 }
-.sidebar-nav .nav-portfolio .router-link-exact-active {
+.sidebar-nav .nav-portfolio .nav-link-active {
   border-left: 0.5rem solid #84a86b;
 }
-.sidebar-nav .nav-contact .router-link-exact-active {
+.sidebar-nav .nav-about .nav-link-active {
   border-left: 0.5rem solid #4cb7db;
 }
-.sidebar-nav .nav-skills .router-link-exact-active {
+.sidebar-nav .nav-skills .nav-link-active {
   border-left: 0.5rem solid #e64543;
 }
-.sidebar-nav .nav-about .router-link-exact-active {
-  border-left: 0.5rem solid #4cb7db;
-}
-.sidebar-nav .nav-experience .router-link-exact-active {
-  border-left: 0.5rem solid #f1a430;
-}
-.sidebar-nav .nav-portfolio .router-link-exact-active {
-  border-left: 0.5rem solid #84a86b;
-}
-.sidebar-nav .nav-contact .router-link-exact-active {
-  border-left: 0.5rem solid #4cb7db;
-}
-
 .skills-nav {
   margin-top: 4rem;
 }

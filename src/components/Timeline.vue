@@ -204,9 +204,6 @@ export default {
           task.showTask = true;
         }
       }
-      this.checkExpanded();
-    },
-    checkExpanded: function() {
       this.$emit('expand-timeline');
     }
   }
