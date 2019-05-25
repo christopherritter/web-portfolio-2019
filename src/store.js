@@ -155,8 +155,20 @@ export default new Vuex.Store({
               {
               id: 0,
               title: 'CX 10 Home Screen',
-              img: 'img/CX10-Home.png',
+              img: 'img/CX10_Home.png',
               description: 'The home screen for CX 10 provides users with a searchable directory of their available applications. When the user launches an application it appears on a recently viewed list next to the directory.'
+            },
+            {
+              id: 1,
+              title: 'CX 10 Login Screen',
+              img: 'img/CX10_Login.png',
+              description: 'A custom modal was created to assist users with logging into their network installation of CX 10.'
+            },
+            {
+              id: 2,
+              title: 'CX 10 Vender Entry',
+              img: 'img/CX10_Vendor-Entry_Query.png',
+              description: 'The developers created a screen reader to interpret legacy forms that were originally created for CRT terminals and present them in a modern layout.'
             }],
             showTask: false,
             showDeliverable: false
