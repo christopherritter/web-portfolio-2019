@@ -295,6 +295,10 @@ h5.tl-company {
   border: 5px solid #3e3e3e;
 }
 
+.btn:hover {
+  color: white;
+}
+
 .btn-bubble {
   border-radius: 50% !important;
   width: 80px;
