@@ -163,40 +163,7 @@ export default {
   components: {
     Deliverable
   },
-  data() {
-    return {
-      fullyCollapsed: false,
-      showAbout: store.state.showAbout,
-      showTimeline: store.state.showTimeline,
-      showPortfolio: store.state.showPortfolio
-    };
-  },
-  created: function() {
-    if (this.tasks === "show") {
-      store.dispatch("showTasks");
-    } else {
-      store.dispatch("hideTasks");
-    }
-    if (this.deliverables === "show") {
-      store.dispatch("showDelis");
-    } else {
-      store.dispatch("hideDelis");
-    }
-  },
   methods: {
-    isRelevant: function(task) {
-      let relevantList = [];
-      for (let s = 0; s < task.skills.length; s++) {
-        if (task.skills[s].isActive) {
-          relevantList.push(s);
-        }
-      }
-      if (relevantList === undefined || relevantList.length == 0) {
-        return false;
-      } else {
-        return true;
-      }
-    },
     toggleTasks: function(job) {
       for (let t = 0; t < store.state.jobs[job.id].tasks.length; t++) {
         let task = store.state.jobs[job.id].tasks[t];

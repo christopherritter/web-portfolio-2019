@@ -22,7 +22,7 @@
         <a
           class="nav-link"
           :class="{ 'nav-link-active': $store.state.showPortfolio }"
-          v-on:click="$emit('toggle-portfolio')"
+          v-on:click="togglePortfolio"
           href="javascript:;"
         >Portfolio</a>
       </li>
@@ -130,14 +130,34 @@ export default {
           }
         }
         store.state.showTimeline = false;
+        store.state.showPortfolio = false;
       }
-      
     },
     toggleSkillList() {
       if (this.showSkills) {
         this.showSkills = false;
       } else {
         this.showSkills = true;
+      }
+    },
+    togglePortfolio() {
+      let jobs = store.state.jobs;
+      if (store.state.showPortfolio == false) {
+        for (let j = 0; j < jobs.length; j++) {
+          let tasks = jobs[j].tasks;
+          for (let t = 0; t < tasks.length; t++) {
+            tasks[t].showDeliverable = true;
+          }
+        }
+        store.state.showPortfolio = true;
+      } else {
+        for (let j = 0; j < jobs.length; j++) {
+          let tasks = jobs[j].tasks;
+          for (let t = 0; t < tasks.length; t++) {
+            tasks[t].showDeliverable = false;
+          }
+        }
+        store.state.showPortfolio = false;
       }
     }
   }
