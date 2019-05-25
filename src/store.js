@@ -570,7 +570,7 @@ export default new Vuex.Store({
         ]
       }
     ],
-    showAbout: true,
+    showAbout: false,
     showTimeline: false,
     showPortfolio: false
   },

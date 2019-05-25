@@ -6,8 +6,9 @@
       class="row"
     >
       <div
-        class="jumbotron"
+        class="jumbotron jumbotron-hover"
         :class="{'jumbotron-lite':!$store.state.showAbout}"
+        v-on:click="$store.state.showAbout = !$store.state.showAbout"
       >
         <h1
           :class="{'d-none':!$store.state.showAbout}"
@@ -24,8 +25,7 @@
         <p
           class="subtext"
           :class="{'subtext-lite':!$store.state.showAbout}"
-        >This interactive resume allows you to focus on my professional skills that interest you most. Anywhere you see a <span class="bold bold-skill">Skill</span> &mdash; below the menu on
-          the side, or on the timeline &mdash; simply click on the skill to highlight them on my timeline.</p>
+        >This interactive resume allows you to focus on my professional skills that interest you most. Simply click on a <span class="bold bold-skill">Skill</span> to see it hightlighted on the timeline below.</p>
       </div>
     </div>
 
@@ -116,6 +116,9 @@ h1 {
   background-repeat: no-repeat;
   background-size: 100%;
 }
+.jumbotron-hover {
+  cursor: pointer;
+}
 .jumbotron-lite {
   padding: 1.5rem;
 }
@@ -127,7 +130,14 @@ p.lead {
 }
 p .bold-skill {
   color: #ffffff;
-  font-weight: 600;
+  font-style: normal;
+  font-size: 0.75rem;
+  padding: 0 4px;
+  margin: 0.1rem;
+  border: 2px solid #3e3e3e;
+  text-transform: uppercase;
+  border: 2px solid #e64543;
+  border-radius: .25rem;
 }
 p.subtext {
   font-style: italic;
