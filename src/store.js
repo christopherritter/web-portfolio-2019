@@ -5,16 +5,68 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    jobs: [
-      {
+    jobs: [{
         id: 0,
         title: "User Experience Designer",
         company: "Jenzabar, Inc.",
         startDate: 2015,
         endDate: "Now",
-        tasks: [
-          {
+        tasks: [{
             id: 0,
+            description: "Implemented Pattern Lab to deliver the new front end for Find Your Calling.",
+            skills: [
+              {
+                label: "UX",
+                isActive: true
+              },
+              {
+                label: "UI",
+                isActive: true
+              },
+              {
+                label: "Bootstrap",
+                isActive: false
+              },
+              {
+                label: "Sass",
+                isActive: false
+              },
+              {
+                label: "Handlebars",
+                isActive: false
+              },
+              {
+                label: "jQuery",
+                isActive: false
+              },
+              {
+                label: "Prototyping",
+                isActive: false
+              },
+              {
+                label: "XD",
+                isActive: false
+              }
+            ],
+            deliverables: [
+              {
+              id: 0,
+              title: 'FYC Design System',
+              img: 'img/FYC_Pattern-Lab.png',
+              description: 'A new design system was created for Find Your Calling using the NodeJS version of Pattern Lab with Handlebars templates.'
+            },
+            {
+              id: 1,
+              title: 'FYC Career Explorer',
+              img: 'img/FYC_Career-Explorer.png',
+              description: 'An entirely new way to explorer careers was created with Handlebars templates, some hefty jQuery, and plenty of Sass.'
+            }
+          ],
+            showTask: false,
+            showDeliverable: false
+          },
+          {
+            id: 1,
             description: "Refactored ASP.Net ASCX templates for the online portal to utilize Bootstrap/Sass for responsive layouts.",
             skills: [
               {
@@ -59,7 +111,7 @@ export default new Vuex.Store({
             showDeliverable: false
           },
           {
-            id: 1,
+            id: 2,
             description: "Developed the front-end for the desktop solution using QT Creator.",
             skills: [
               {
@@ -99,7 +151,8 @@ export default new Vuex.Store({
                 isActive: false
               }
             ],
-            deliverables: [{
+            deliverables: [
+              {
               id: 0,
               title: 'CX 10 Home Screen',
               img: 'img/CX10-Home.png',
@@ -109,7 +162,7 @@ export default new Vuex.Store({
             showDeliverable: false
           },
           {
-            id: 2,
+            id: 3,
             description: "Developed prototypes using SmartGWT to demonstrate interactions and responsive layouts.",
             skills: [
               {
@@ -133,7 +186,7 @@ export default new Vuex.Store({
             showDeliverable: false
           },
           {
-            id: 3,
+            id: 4,
             description: "Provided design assistance to local, remote, and offshore development teams by delivering wireframes and various UI elements (fonts, icons, colors) within an Agile environment.",
             skills: [
               {
@@ -169,12 +222,10 @@ export default new Vuex.Store({
         startDate: 2015,
         endDate: 2015,
         location: "New Bremen, Ohio",
-        tasks: [
-          {
+        tasks: [{
           id: 0,
           description: "Contracted to provide front-end assistance for Crown Equipment to implement a responsive design for their corporate site managed by Adobe Experience Manager.",
-          skills: [
-            {
+          skills: [{
               label: "UX",
               isActive: true
             },
@@ -216,8 +267,7 @@ export default new Vuex.Store({
         startDate: 2014,
         endDate: 2015,
         location: "Huber Heights, Ohio",
-        tasks: [
-          {
+        tasks: [{
             id: 0,
             description: "Brainstormed concepts with machine operators using Gamestorming techniques to generate new ideas.",
             skills: [{
@@ -235,8 +285,7 @@ export default new Vuex.Store({
           {
             id: 1,
             description: "Developed HTML/Bootstrap prototypes for field testing with machine operators.",
-            skills: [
-              {
+            skills: [{
                 label: "UX",
                 isActive: true
               },
@@ -263,8 +312,7 @@ export default new Vuex.Store({
           {
             id: 2,
             description: "Conducted field research of the construction industry across the US and Canada, providing top level reports of my findings to primary stakeholders.",
-            skills: [
-              {
+            skills: [{
                 label: "UX",
                 isActive: true
               },
@@ -287,8 +335,7 @@ export default new Vuex.Store({
           {
             id: 3,
             description: "Modeled an excavator and work site using Trimble SketchUp.",
-            skills: [
-              {
+            skills: [{
                 label: "UI",
                 isActive: true
               },
@@ -307,8 +354,7 @@ export default new Vuex.Store({
           {
             id: 4,
             description: "Provided design assets for Android/Vuforia prototypes, and for production within an Agile environment, which included style guides and custom icons for Android applications.",
-            skills: [
-              {
+            skills: [{
                 label: "UI",
                 isActive: true
               },
@@ -352,8 +398,7 @@ export default new Vuex.Store({
         tasks: [{
             id: 0,
             description: "Created annotated wireframes to support the development of Lexis Advance.",
-            skills: [
-              {
+            skills: [{
               label: "UX",
               isActive: true
             }],
@@ -363,8 +408,7 @@ export default new Vuex.Store({
           {
             id: 1,
             description: "Conducted concept testing and usability research with legal professionals, and delivered top level reports of my discussions to primary stakeholders. ",
-            skills: [
-              {
+            skills: [{
                 label: "UX",
                 isActive: true
               },
@@ -387,8 +431,7 @@ export default new Vuex.Store({
           {
             id: 2,
             description: "Lead brainstorming workshops with legal professionals using Gamestorming techniques to generate new ideas.",
-            skills: [
-              {
+            skills: [{
                 label: "UX",
                 isActive: true
               },
@@ -403,8 +446,7 @@ export default new Vuex.Store({
           {
             id: 3,
             description: "Founding member of the Customer Discovery & Innovation team which designed, prototyped, and tested the most popular concepts from our innovation pipeline.",
-            skills: [
-              {
+            skills: [{
                 label: "UX",
                 isActive: true
               },
@@ -431,8 +473,7 @@ export default new Vuex.Store({
           {
             id: 4,
             description: "Design Lead for several innovative products including Lexis Answers.",
-            skills: [
-              {
+            skills: [{
                 label: "UX",
                 isActive: true
               },
@@ -469,12 +510,10 @@ export default new Vuex.Store({
         startDate: 2009,
         endDate: 2010,
         location: "Cincinnati, Ohio",
-        tasks: [
-          {
+        tasks: [{
             id: 0,
             description: "Planned the digital experience of social, mobile, and web applications for corporate clients that included P&G, Pearle Vision, and Red Bull.",
-            skills: [
-              {
+            skills: [{
                 label: "UX",
                 isActive: true
               },
@@ -497,8 +536,7 @@ export default new Vuex.Store({
           {
             id: 1,
             description: "Lead brainstorming sessions with creative, technical, and business leads to generate new ideas.",
-            skills: [
-              {
+            skills: [{
                 label: "UX",
                 isActive: true
               },
@@ -513,8 +551,7 @@ export default new Vuex.Store({
           {
             id: 2,
             description: "Illustrated user flows, site maps, and wireframes to assist the design and development teams.",
-            skills: [
-              {
+            skills: [{
               label: "UX",
               isActive: true
             }],
@@ -524,8 +561,7 @@ export default new Vuex.Store({
           {
             id: 3,
             description: "Documented features and functionality for project management, and provided competitive analysis of similar products on the market.",
-            skills: [
-              {
+            skills: [{
               label: "UX",
               isActive: true
             }],
@@ -535,8 +571,7 @@ export default new Vuex.Store({
           {
             id: 4,
             description: "Conducted usability testing with potential customers and reported insights back to the team.",
-            skills: [
-              {
+            skills: [{
                 label: "UX",
                 isActive: true
               },
@@ -559,8 +594,7 @@ export default new Vuex.Store({
           {
             id: 5,
             description: "Presented initial concepts, customer feedback, and other deliverables to the clients.",
-            skills: [
-              {
+            skills: [{
               label: "UX",
               isActive: true
             }],
