@@ -149,6 +149,7 @@ export default {
             tasks[t].showDeliverable = true;
           }
         }
+        store.state.showTimeline = true;
         store.state.showPortfolio = true;
       } else {
         for (let j = 0; j < jobs.length; j++) {
@@ -157,6 +158,7 @@ export default {
             tasks[t].showDeliverable = false;
           }
         }
+        store.state.showTimeline = false;
         store.state.showPortfolio = false;
       }
     }

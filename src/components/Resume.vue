@@ -35,13 +35,13 @@
     >
       <div
         class="col-md-12"
-        :class="{ 'col-lg-8': !$store.state.showTimeline, 'col-lg-10': $store.state.showTimeline }"
+        :class="[ { 'col-lg-8': !$store.state.showTimeline } , { 'col-lg-10' : $store.state.showTimeline } ]"
       >
         <timeline></timeline>
       </div>
       <div
         class="col-md-12 pt-3 pb-5"
-        :class="{ 'col-lg-4': !$store.state.showTimeline, 'col-lg-2': $store.state.showTimeline }"
+        :class="[{ 'col-lg-4': !$store.state.showTimeline},{ 'col-lg-2': $store.state.showTimeline }]"
       >
         <div
           id="skills"
