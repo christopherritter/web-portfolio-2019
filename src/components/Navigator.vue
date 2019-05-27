@@ -1,6 +1,9 @@
 <template>
-  <div id="navigator">
-
+  <div
+    id="navigator"
+    class="row"
+  >
+  
     <ul class="navbar-nav sidebar-nav">
       <li class="nav-item nav-about">
         <a
@@ -91,7 +94,7 @@ export default {
       if (this.showSkills) {
         return store.getters.topSkills;
       } else {
-        return store.getters.topSkills.slice(0, 4);
+        return store.getters.topSkills.slice(0, 6);
       }
     },
     visibleTasks() {
@@ -167,6 +170,10 @@ export default {
 </script>
 
 <style>
+#navigator {
+  padding-top: 0.5rem;
+}
+
 .sidebar-nav .nav-item .nav-link {
   color: #fff;
   height: 4.5rem;

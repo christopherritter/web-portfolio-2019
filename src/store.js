@@ -40,11 +40,15 @@ export default new Vuex.Store({
                 isActive: false
               },
               {
-                label: "Prototyping",
+                label: "Pattern Lab",
                 isActive: false
               },
               {
                 label: "XD",
+                isActive: false
+              },
+              {
+                label: "Analytics",
                 isActive: false
               }
             ],
@@ -94,7 +98,8 @@ export default new Vuex.Store({
                 isActive: false
               }
             ],
-            deliverables: [{
+            deliverables: [
+              {
                 id: 0,
                 title: 'Jenzabar ICS Design System',
                 img: 'img/JICS-Design-System_Home.png',
@@ -148,6 +153,10 @@ export default new Vuex.Store({
               },
               {
                 label: "QSS",
+                isActive: false
+              },
+              {
+                label: "XD",
                 isActive: false
               }
             ],
@@ -229,11 +238,11 @@ export default new Vuex.Store({
       },
       {
         id: 1,
-        title: "Interface Design Consultant",
-        company: "Crown Equipment",
+        title: "Experience Design Consultant",
+        company: "Strategic Data Systems",
         startDate: 2015,
         endDate: 2015,
-        location: "New Bremen, Ohio",
+        location: "Dayton, Ohio",
         tasks: [{
           id: 0,
           description: "Contracted to provide front-end assistance for Crown Equipment to implement a responsive design for their corporate site managed by Adobe Experience Manager.",
@@ -287,7 +296,7 @@ export default new Vuex.Store({
                 isActive: true
               },
               {
-                label: "Ideation",
+                label: "Gamestorming",
                 isActive: false
               }
             ],
@@ -448,7 +457,7 @@ export default new Vuex.Store({
                 isActive: true
               },
               {
-                label: "Ideation",
+                label: "Gamestorming",
                 isActive: false
               }
             ],
@@ -498,7 +507,7 @@ export default new Vuex.Store({
                 isActive: false
               },
               {
-                label: "Ideation",
+                label: "Gamestorming",
                 isActive: false
               },
               {
@@ -553,7 +562,7 @@ export default new Vuex.Store({
                 isActive: true
               },
               {
-                label: "Ideation",
+                label: "Gamestorming",
                 isActive: false
               }
             ],

@@ -1,5 +1,5 @@
 <template>
-  <div class="timeline pb-5">
+  <div class="timeline">
     <div
       class="tl-job"
       v-for="job in this.$store.state.jobs"
@@ -206,7 +206,7 @@ h6.tl-job {
 
 h5.tl-company {
   font-size: 2rem;
-  line-height: 2rem;
+  line-height: 2.15rem;
   font-weight: 400;
   margin-bottom: 2rem;
 }
