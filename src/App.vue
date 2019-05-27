@@ -102,7 +102,7 @@ a {
   color: #bcbcbc;
 }
 a:hover {
-  color: #fff;
+  color: #4cb7db;
   text-decoration: none;
 }
 .progress .progress-bar {

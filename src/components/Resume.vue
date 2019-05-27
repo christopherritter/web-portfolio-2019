@@ -101,7 +101,7 @@
         >Many moons ago, I fancied myself a Web Designer until I was swept away by the advent of User Experience Design.</p>
 
         <p :class="{'d-none':!$store.state.showAbout}">In the decade that followed, I practiced the art of wireframing and annotating, diagramming user workflows, and gathering user feedback on design concepts. As the industry continued to evolve with
-          the aid of Design Systems, so too has my knowledge of front-end frameworks. Now I have returned to my HTML/CSS/JS roots with the skillset of a UX Engineer.</p>
+          the aid of Design Systems, so too has my knowledge of front-end frameworks. Now I have returned to my HTML/CSS/JS roots with the goal of becoming a UX Engineer.</p>
 
         <p class="subtext">This interactive resume allows you to focus on my professional skills that interest you most. Simply click on a <span class="bold bold-skill">Skill</span> &mdash; on the sidebar, or the timeline below &mdash; to see it
           hightlighted in my experience.</p>
@@ -270,7 +270,7 @@ h6.section {
   border-bottom: 1px solid #3d3d3d;
 }
 h6 a span.show-less {
-  color: #fff;
+  color: #4cb7db;
 }
 h6 a svg {
   margin-bottom: 3px;
@@ -280,7 +280,7 @@ h6 a svg path {
 }
 h6 a span.show-less svg path,
 h6 a:hover svg path {
-  fill: #fff;
+  fill: #4cb7db;
 }
 .jumbotron {
   padding: 4rem 3rem 2rem 3rem;
